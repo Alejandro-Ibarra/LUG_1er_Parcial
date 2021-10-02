@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace BusinessEntity
 {
-    class TarjetaNacional
+    public class TarjetaNacional : BETarjeta
     {
+        public string Provincia { get; set; }
     }
 }
