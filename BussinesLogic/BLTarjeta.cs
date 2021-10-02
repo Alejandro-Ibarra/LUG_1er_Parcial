@@ -9,33 +9,8 @@ using Mapper;
 
 namespace BussinesLogic
 {
-    public class BLTarjeta : IGestor<BETarjeta>
+    public abstract class BLTarjeta 
     {
-        public BLTarjeta()
-        {
-            oMTarjeta = new MTarjeta();
-        }
-
-        MTarjeta oMTarjeta;
-
-        public bool Guardar(BETarjeta oBETarjeta)
-        {
-            return oMTarjeta.Guardar(oBETarjeta);
-        }
-
-        public bool Baja(BETarjeta oBETarjeta)
-        {
-            return oMTarjeta.Baja(oBETarjeta);
-        }
-
-        public BETarjeta ListarObjeto(BETarjeta oBETarjeta)
-        {
-            return oMTarjeta.ListarObjeto(oBETarjeta);
-        }
-
-        public List<BETarjeta> ListarTodo()
-        {
-            return oMTarjeta.ListarTodo();
-        }
+       
     }
 }

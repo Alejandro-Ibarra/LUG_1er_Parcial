@@ -44,6 +44,8 @@
     <Compile Include="BLCliente.cs" />
     <Compile Include="BLCompra.cs" />
     <Compile Include="BLTarjeta.cs" />
+    <Compile Include="BLTarjetaInternacional.cs" />
+    <Compile Include="BLTarjetaNacional.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

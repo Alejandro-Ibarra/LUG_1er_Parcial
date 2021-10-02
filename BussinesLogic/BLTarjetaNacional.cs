@@ -3,30 +3,30 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Abstraccion;
 using BusinessEntity;
-using DataAccess;
+using Abstraccion;
 
-namespace Mapper
+
+namespace BussinesLogic
 {
-    public class MCompra : IGestor<BECompra>
+    class BLTarjetaNacional : BLTarjeta, IGestor<BETarjeta>
     {
-        public bool Baja(BECompra Objeto)
+        public bool Baja(BETarjeta Objeto)
         {
             throw new NotImplementedException();
         }
 
-        public bool Guardar(BECompra Objeto)
+        public bool Guardar(BETarjeta Objeto)
         {
             throw new NotImplementedException();
         }
 
-        public BECompra ListarObjeto(BECompra Objeto)
+        public BETarjeta ListarObjeto(BETarjeta Objeto)
         {
             throw new NotImplementedException();
         }
 
-        public List<BECompra> ListarTodo()
+        public List<BETarjeta> ListarTodo()
         {
             throw new NotImplementedException();
         }

@@ -33,6 +33,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -41,9 +42,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="MCompra.cs" />
-    <Compile Include="MTarjeta.cs" />
+    <Compile Include="MDescuentosCalculados.cs" />
+    <Compile Include="MTarjetaInternacional.cs" />
     <Compile Include="MCliente.cs" />
+    <Compile Include="MTarjetaNacional.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -9,31 +9,31 @@ using Mapper;
 
 namespace BussinesLogic
 {
-    public class BLCompra : IGestor<BECompra>
+    public class BLCompra : IGestor<BEDescuentoCalculado>
     {
         public BLCompra()
         {
-            oMCompra = new MCompra();
+            oMCompra = new MDescuentosCalculados();
         }
 
-        MCompra oMCompra;
+        MDescuentosCalculados oMCompra;
 
-        public bool Guardar(BECompra oBECompra)
+        public bool Guardar(BEDescuentoCalculado oBECompra)
         {
             return oMCompra.Guardar(oBECompra);
         }
 
-        public bool Baja(BECompra oBECompra)
+        public bool Baja(BEDescuentoCalculado oBECompra)
         {
             return oMCompra.Baja(oBECompra);
         }
 
-        public BECompra ListarObjeto(BECompra oBECompra)
+        public BEDescuentoCalculado ListarObjeto(BEDescuentoCalculado oBECompra)
         {
             return oMCompra.ListarObjeto(oBECompra);
         }
 
-        public List<BECompra> ListarTodo()
+        public List<BEDescuentoCalculado> ListarTodo()
         {
             return oMCompra.ListarTodo();
         }

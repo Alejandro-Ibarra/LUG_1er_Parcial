@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BusinessEntity
 {
-    public class TarjetaInternacional : BETarjeta
+    public class BETarjetaInternacional : BETarjeta
     {
     }
 }

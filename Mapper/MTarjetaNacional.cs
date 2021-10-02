@@ -9,16 +9,14 @@ using DataAccess;
 
 namespace Mapper
 {
-    public class MTarjeta : IGestor<BETarjeta>
+    public class MTarjetaNacional : IGestor<BETarjeta>
     {
-        Conexion oConexion;
-
-        public bool Guardar(BETarjeta Objeto)
+        public bool Baja(BETarjeta Objeto)
         {
             throw new NotImplementedException();
         }
 
-        public bool Baja(BETarjeta Objeto)
+        public bool Guardar(BETarjeta Objeto)
         {
             throw new NotImplementedException();
         }
