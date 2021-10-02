@@ -28,14 +28,14 @@ namespace BussinesLogic
             return oMCliente.Baja(oBECliente);
         }
 
-        public BECliente ListarObjeto(BECliente oBECliente)
-        {
-            return oMCliente.ListarObjeto(oBECliente);
-        }
-
         public List<BECliente> ListarTodo()
         {
             return oMCliente.ListarTodo();
+        }
+
+        public BECliente ListarObjeto(BECliente oBECliente)
+        {
+            return oMCliente.ListarObjeto(oBECliente);
         }
     }
 }
