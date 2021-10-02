@@ -1,7 +1,7 @@
 ﻿
 namespace GUI
 {
-    partial class GUI_Tarjetas
+    partial class GUI_Compras
     {
         /// <summary>
         /// Required designer variable.
@@ -32,7 +32,7 @@ namespace GUI
             this.components = new System.ComponentModel.Container();
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Text = "GUI_Tarjetas";
+            this.Text = "GUI_Compras";
         }
 
         #endregion

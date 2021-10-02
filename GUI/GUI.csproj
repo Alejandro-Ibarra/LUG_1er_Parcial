@@ -45,11 +45,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GUI-Clientes.cs">
+    <Compile Include="GUI-ABMClientesTarjetas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GUI-Clientes.Designer.cs">
-      <DependentUpon>GUI-Clientes.cs</DependentUpon>
+    <Compile Include="GUI-ABMClientesTarjetas.Designer.cs">
+      <DependentUpon>GUI-ABMClientesTarjetas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI-ClientesXTarjetas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI-ClientesXTarjetas.Designer.cs">
+      <DependentUpon>GUI-ClientesXTarjetas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI-Compras.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI-Compras.Designer.cs">
+      <DependentUpon>GUI-Compras.cs</DependentUpon>
     </Compile>
     <Compile Include="GUI-MenuPrincipal.cs">
       <SubType>Form</SubType>
@@ -57,14 +69,14 @@
     <Compile Include="GUI-MenuPrincipal.Designer.cs">
       <DependentUpon>GUI-MenuPrincipal.cs</DependentUpon>
     </Compile>
-    <Compile Include="GUI-Tarjetas.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="GUI-Tarjetas.Designer.cs">
-      <DependentUpon>GUI-Tarjetas.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="GUI-ABMClientesTarjetas.resx">
+      <DependentUpon>GUI-ABMClientesTarjetas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI-MenuPrincipal.resx">
+      <DependentUpon>GUI-MenuPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
