@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MDescuentosCalculados.cs" />
+    <Compile Include="MTarjeta.cs" />
     <Compile Include="MTarjetaInternacional.cs" />
     <Compile Include="MCliente.cs" />
     <Compile Include="MTarjetaNacional.cs" />

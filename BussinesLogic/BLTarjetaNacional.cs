@@ -5,28 +5,35 @@ using System.Text;
 using System.Threading.Tasks;
 using BusinessEntity;
 using Abstraccion;
-
+using Mapper;
 
 namespace BussinesLogic
 {
-    class BLTarjetaNacional : BLTarjeta, IGestor<BETarjeta>
+    class BLTarjetaNacional : BLTarjeta, IGestor<BETarjetaNacional>
     {
-        public bool Baja(BETarjeta Objeto)
+        public BLTarjetaNacional()
+        {
+            oMTarjetaNacional= new MTarjetaNacional();
+        }
+
+        MTarjetaNacional oMTarjetaNacional;
+
+        public bool Baja(BETarjetaNacional oBEtarjeta)
         {
             throw new NotImplementedException();
         }
 
-        public bool Guardar(BETarjeta Objeto)
+        public bool Guardar(BETarjetaNacional oBEtarjeta)
+        {
+            return oMTarjetaNacional.Guardar(oBEtarjeta);
+        }
+
+        public BETarjetaNacional ListarObjeto(BETarjetaNacional oBEtarjeta)
         {
             throw new NotImplementedException();
         }
 
-        public BETarjeta ListarObjeto(BETarjeta Objeto)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<BETarjeta> ListarTodo()
+        public List<BETarjetaNacional> ListarTodo()
         {
             throw new NotImplementedException();
         }

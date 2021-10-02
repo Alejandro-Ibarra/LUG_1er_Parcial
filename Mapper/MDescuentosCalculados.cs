@@ -44,9 +44,8 @@ namespace Mapper
 
         public List<BEDescuentoCalculado> ListarTodo()
         {
-            DataSet oDataSet;
             oConexion = new Conexion();
-            oDataSet = oConexion.LeerDataSet("Select Codigo,NumeroTarjeta,Tipo,MontoDescuento from DescuentoOtorgado;");
+            DataSet oDataSet = oConexion.LeerDataSet("Select Codigo,NumeroTarjeta,Tipo,MontoDescuento from DescuentoOtorgado;");
             List<BEDescuentoCalculado> ListaDeDescuentos = new List<BEDescuentoCalculado>();
             try
             {

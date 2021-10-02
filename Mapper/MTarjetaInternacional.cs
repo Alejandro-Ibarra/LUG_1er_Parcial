@@ -10,11 +10,11 @@ using DataAccess;
 
 namespace Mapper
 {
-    public class MTarjetaInternacional : IGestor<BETarjeta>
+    public class MTarjetaInternacional : IGestor<BETarjetaInternacional>
     {
         Conexion oConexion;
 
-        public bool Guardar(BETarjeta oBETarjeta)
+        public bool Guardar(BETarjetaInternacional oBETarjeta)
         {
             string ConsultaSql;
             if (oBETarjeta.Codigo == 0)
@@ -31,37 +31,39 @@ namespace Mapper
             return oConexion.Escribir(ConsultaSql);
         }
 
-        public bool Baja(BETarjeta Objeto)
+        public BETarjetaInternacional ListarObjeto(BETarjetaInternacional oBETarjeta)
         {
-            throw new NotImplementedException();
-        }
-
-        public BETarjeta ListarObjeto(BETarjeta Objeto)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<BETarjeta> ListarTodo()
-        {
-            List<BETarjeta> ListaTarjetas = new List<BETarjeta>();
-            DataSet oDataSetTarjetas;
             oConexion = new Conexion();
-            string ConsultaSQL = "SELECT Codigo,Numero,Vencimiento,PorcentajeDescuento,Estado,Rubro,TipoNacProv,Provincia FROM Tarjetas";
-            oDataSetTarjetas = oConexion.LeerDataSet(ConsultaSQL);
-            if (oDataSetTarjetas.Tables[0].Rows.Count > 0)
-            {
+            string Consulta = "SELECT Codigo,Numero,Vencimiento,PorcentajeDescuento,Estado,Rubro,TipoNacProv FROM Tarjetas where Codigo =" + oBETarjeta.Codigo;
+            DataSet oDataSet = oConexion.LeerDataSet(Consulta);
 
-                foreach (DataRow fila in oDataSetTarjetas.Tables[0].Rows)
+            if (oDataSet.Tables[0].Rows.Count > 0)
+            {
+                BETarjetaInternacional oBETarjInt = new BETarjetaInternacional();
+                foreach (DataRow fila in oDataSet.Tables[0].Rows)
                 {
-                    BETecnico oBETec = new BETecnico();
-                    oBETec.Codigo = Convert.ToInt32(fila[0]);
-                    oBETec.Nombre = fila[1].ToString();
-                    oBETec.Apellido = fila["Apellido"].ToString();
-                    oBETec.DNI = Convert.ToInt32(fila["DNI"]);
-                    ListaTecnicos.Add(oBETec);
+
+                    oBETarjInt.Codigo = Convert.ToInt32(fila[0]);
+                    oBETarjInt.Numero = Convert.ToInt32(fila[1]);
+                    oBETarjInt.Vencimiento = Convert.ToDateTime(fila[2]);
+                    oBETarjInt.Descuento = Convert.ToInt32(fila[3]);
+                    oBETarjInt.Estado = fila[4].ToString();
+                    oBETarjInt.Rubro = fila[5].ToString();
+                    oBETarjInt.Pais = fila[6].ToString();
                 }
+                return oBETarjInt;
             }
-            return ListaTecnicos;
+            else { return null; }
+        }
+
+        public List<BETarjetaInternacional> ListarTodo()
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool Baja(BETarjetaInternacional oBETarjeta)
+        {
+            throw new NotImplementedException();
         }
     }
 }
