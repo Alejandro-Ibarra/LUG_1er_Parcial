@@ -74,6 +74,12 @@
     <EmbeddedResource Include="GUI-ABMClientesTarjetas.resx">
       <DependentUpon>GUI-ABMClientesTarjetas.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="GUI-ClientesXTarjetas.resx">
+      <DependentUpon>GUI-ClientesXTarjetas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI-Compras.resx">
+      <DependentUpon>GUI-Compras.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="GUI-MenuPrincipal.resx">
       <DependentUpon>GUI-MenuPrincipal.cs</DependentUpon>
     </EmbeddedResource>
@@ -98,6 +104,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BusinessEntity\BusinessEntity.csproj">
+      <Project>{0949108a-8c06-4ab5-92d2-c6c03b6b80b2}</Project>
+      <Name>BusinessEntity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BussinesLogic\BusinessLogic.csproj">
+      <Project>{61c8af54-2d92-4f60-8e6a-86dd402d951e}</Project>
+      <Name>BusinessLogic</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

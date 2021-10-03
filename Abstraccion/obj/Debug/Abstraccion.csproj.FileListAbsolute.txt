@@ -1,0 +1,6 @@
+C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\LUG\Tps_Parciales\LUG_1er_Parcial\Abstraccion\bin\Debug\Abstraccion.dll
+C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\LUG\Tps_Parciales\LUG_1er_Parcial\Abstraccion\bin\Debug\Abstraccion.pdb
+C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\LUG\Tps_Parciales\LUG_1er_Parcial\Abstraccion\obj\Debug\Abstraccion.csprojAssemblyReference.cache
+C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\LUG\Tps_Parciales\LUG_1er_Parcial\Abstraccion\obj\Debug\Abstraccion.csproj.CoreCompileInputs.cache
+C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\LUG\Tps_Parciales\LUG_1er_Parcial\Abstraccion\obj\Debug\Abstraccion.dll
+C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\LUG\Tps_Parciales\LUG_1er_Parcial\Abstraccion\obj\Debug\Abstraccion.pdb

@@ -13,7 +13,7 @@ namespace BusinessEntity
         public string Apellido { get; set; }
         public int DNI { get; set; }
         public DateTime FechaNacimiento { get; set; }
-        public BETarjeta Tarjeta { get; set; }
+        public List<BETarjeta> Tarjeta { get; set; }
 
     }
 }

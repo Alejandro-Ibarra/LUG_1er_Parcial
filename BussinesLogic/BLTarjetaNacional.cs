@@ -9,7 +9,7 @@ using Mapper;
 
 namespace BussinesLogic
 {
-    class BLTarjetaNacional : BLTarjeta, IGestor<BETarjetaNacional>
+    public class BLTarjetaNacional : BLTarjeta, IGestor<BETarjetaNacional>
     {
         public BLTarjetaNacional()
         {

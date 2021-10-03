@@ -59,6 +59,8 @@ namespace GUI
             this.label1 = new System.Windows.Forms.Label();
             this.TextBox_Nombre = new System.Windows.Forms.TextBox();
             this.TextBox_Apellido = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.TextBox_Cod_Cliente = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.DataGrid_ABM_Cliente)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataGrid_ABM_Tarjeta)).BeginInit();
             this.SuspendLayout();
@@ -70,6 +72,7 @@ namespace GUI
             this.DataGrid_ABM_Cliente.Name = "DataGrid_ABM_Cliente";
             this.DataGrid_ABM_Cliente.Size = new System.Drawing.Size(507, 310);
             this.DataGrid_ABM_Cliente.TabIndex = 0;
+            this.DataGrid_ABM_Cliente.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGrid_ABM_Cliente_CellContentClick);
             // 
             // DataGrid_ABM_Tarjeta
             // 
@@ -78,6 +81,7 @@ namespace GUI
             this.DataGrid_ABM_Tarjeta.Name = "DataGrid_ABM_Tarjeta";
             this.DataGrid_ABM_Tarjeta.Size = new System.Drawing.Size(507, 310);
             this.DataGrid_ABM_Tarjeta.TabIndex = 1;
+            this.DataGrid_ABM_Tarjeta.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGrid_ABM_Tarjeta_CellContentClick);
             // 
             // TextBox_DNI
             // 
@@ -90,7 +94,7 @@ namespace GUI
             // DateTimePicker_Cliente
             // 
             this.DateTimePicker_Cliente.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DateTimePicker_Cliente.Location = new System.Drawing.Point(173, 82);
+            this.DateTimePicker_Cliente.Location = new System.Drawing.Point(157, 82);
             this.DateTimePicker_Cliente.Name = "DateTimePicker_Cliente";
             this.DateTimePicker_Cliente.Size = new System.Drawing.Size(100, 20);
             this.DateTimePicker_Cliente.TabIndex = 6;
@@ -107,7 +111,7 @@ namespace GUI
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(170, 66);
+            this.label4.Location = new System.Drawing.Point(154, 66);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(108, 13);
             this.label4.TabIndex = 10;
@@ -141,7 +145,7 @@ namespace GUI
             // ComboBox_Rubro
             // 
             this.ComboBox_Rubro.FormattingEnabled = true;
-            this.ComboBox_Rubro.Location = new System.Drawing.Point(723, 81);
+            this.ComboBox_Rubro.Location = new System.Drawing.Point(707, 81);
             this.ComboBox_Rubro.Name = "ComboBox_Rubro";
             this.ComboBox_Rubro.Size = new System.Drawing.Size(100, 21);
             this.ComboBox_Rubro.TabIndex = 33;
@@ -149,7 +153,7 @@ namespace GUI
             // ComboBox_Provincia
             // 
             this.ComboBox_Provincia.FormattingEnabled = true;
-            this.ComboBox_Provincia.Location = new System.Drawing.Point(845, 82);
+            this.ComboBox_Provincia.Location = new System.Drawing.Point(820, 82);
             this.ComboBox_Provincia.Name = "ComboBox_Provincia";
             this.ComboBox_Provincia.Size = new System.Drawing.Size(100, 21);
             this.ComboBox_Provincia.TabIndex = 34;
@@ -157,14 +161,14 @@ namespace GUI
             // ComboBox_Pais
             // 
             this.ComboBox_Pais.FormattingEnabled = true;
-            this.ComboBox_Pais.Location = new System.Drawing.Point(845, 38);
+            this.ComboBox_Pais.Location = new System.Drawing.Point(820, 38);
             this.ComboBox_Pais.Name = "ComboBox_Pais";
             this.ComboBox_Pais.Size = new System.Drawing.Size(100, 21);
             this.ComboBox_Pais.TabIndex = 35;
             // 
             // TextBox_Monto
             // 
-            this.TextBox_Monto.Location = new System.Drawing.Point(723, 39);
+            this.TextBox_Monto.Location = new System.Drawing.Point(707, 39);
             this.TextBox_Monto.Multiline = true;
             this.TextBox_Monto.Name = "TextBox_Monto";
             this.TextBox_Monto.Size = new System.Drawing.Size(100, 20);
@@ -172,25 +176,27 @@ namespace GUI
             // 
             // Button_Baja_Cliente
             // 
-            this.Button_Baja_Cliente.Location = new System.Drawing.Point(301, 84);
+            this.Button_Baja_Cliente.Location = new System.Drawing.Point(419, 84);
             this.Button_Baja_Cliente.Name = "Button_Baja_Cliente";
             this.Button_Baja_Cliente.Size = new System.Drawing.Size(100, 20);
             this.Button_Baja_Cliente.TabIndex = 39;
             this.Button_Baja_Cliente.Text = "Borrar";
             this.Button_Baja_Cliente.UseVisualStyleBackColor = true;
+            this.Button_Baja_Cliente.Click += new System.EventHandler(this.Button_Baja_Cliente_Click);
             // 
             // Button_Borrar_Tarjeta
             // 
-            this.Button_Borrar_Tarjeta.Location = new System.Drawing.Point(985, 84);
+            this.Button_Borrar_Tarjeta.Location = new System.Drawing.Point(1000, 83);
             this.Button_Borrar_Tarjeta.Name = "Button_Borrar_Tarjeta";
             this.Button_Borrar_Tarjeta.Size = new System.Drawing.Size(100, 20);
             this.Button_Borrar_Tarjeta.TabIndex = 42;
             this.Button_Borrar_Tarjeta.Text = "Borrar";
             this.Button_Borrar_Tarjeta.UseVisualStyleBackColor = true;
+            this.Button_Borrar_Tarjeta.Click += new System.EventHandler(this.Button_Borrar_Tarjeta_Click);
             // 
             // Button_Modificar_Tarjeta
             // 
-            this.Button_Modificar_Tarjeta.Location = new System.Drawing.Point(985, 62);
+            this.Button_Modificar_Tarjeta.Location = new System.Drawing.Point(1000, 61);
             this.Button_Modificar_Tarjeta.Name = "Button_Modificar_Tarjeta";
             this.Button_Modificar_Tarjeta.Size = new System.Drawing.Size(100, 20);
             this.Button_Modificar_Tarjeta.TabIndex = 41;
@@ -200,12 +206,13 @@ namespace GUI
             // 
             // Button_Alta_Tarjeta
             // 
-            this.Button_Alta_Tarjeta.Location = new System.Drawing.Point(985, 40);
+            this.Button_Alta_Tarjeta.Location = new System.Drawing.Point(1000, 39);
             this.Button_Alta_Tarjeta.Name = "Button_Alta_Tarjeta";
             this.Button_Alta_Tarjeta.Size = new System.Drawing.Size(100, 20);
             this.Button_Alta_Tarjeta.TabIndex = 40;
             this.Button_Alta_Tarjeta.Text = "Alta";
             this.Button_Alta_Tarjeta.UseVisualStyleBackColor = true;
+            this.Button_Alta_Tarjeta.Click += new System.EventHandler(this.Button_Alta_Tarjeta_Click);
             // 
             // label6
             // 
@@ -219,7 +226,7 @@ namespace GUI
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(720, 23);
+            this.label7.Location = new System.Drawing.Point(704, 23);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(37, 13);
             this.label7.TabIndex = 44;
@@ -228,7 +235,7 @@ namespace GUI
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(720, 65);
+            this.label8.Location = new System.Drawing.Point(704, 65);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(36, 13);
             this.label8.TabIndex = 45;
@@ -237,7 +244,7 @@ namespace GUI
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(842, 22);
+            this.label9.Location = new System.Drawing.Point(817, 22);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(29, 13);
             this.label9.TabIndex = 46;
@@ -246,7 +253,7 @@ namespace GUI
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(842, 66);
+            this.label10.Location = new System.Drawing.Point(817, 66);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(51, 13);
             this.label10.TabIndex = 47;
@@ -270,26 +277,28 @@ namespace GUI
             // 
             // Button_Alta_Cliente
             // 
-            this.Button_Alta_Cliente.Location = new System.Drawing.Point(301, 39);
+            this.Button_Alta_Cliente.Location = new System.Drawing.Point(419, 39);
             this.Button_Alta_Cliente.Name = "Button_Alta_Cliente";
             this.Button_Alta_Cliente.Size = new System.Drawing.Size(100, 20);
             this.Button_Alta_Cliente.TabIndex = 37;
             this.Button_Alta_Cliente.Text = "Alta";
             this.Button_Alta_Cliente.UseVisualStyleBackColor = true;
+            this.Button_Alta_Cliente.Click += new System.EventHandler(this.Button_Alta_Cliente_Click);
             // 
             // Button_Mod_Cliente
             // 
-            this.Button_Mod_Cliente.Location = new System.Drawing.Point(301, 62);
+            this.Button_Mod_Cliente.Location = new System.Drawing.Point(419, 62);
             this.Button_Mod_Cliente.Name = "Button_Mod_Cliente";
             this.Button_Mod_Cliente.Size = new System.Drawing.Size(100, 20);
             this.Button_Mod_Cliente.TabIndex = 38;
             this.Button_Mod_Cliente.Text = "Modificar";
             this.Button_Mod_Cliente.UseVisualStyleBackColor = true;
+            this.Button_Mod_Cliente.Click += new System.EventHandler(this.Button_Mod_Cliente_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(170, 23);
+            this.label2.Location = new System.Drawing.Point(154, 23);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(44, 13);
             this.label2.TabIndex = 8;
@@ -314,17 +323,36 @@ namespace GUI
             // 
             // TextBox_Apellido
             // 
-            this.TextBox_Apellido.Location = new System.Drawing.Point(173, 39);
+            this.TextBox_Apellido.Location = new System.Drawing.Point(157, 39);
             this.TextBox_Apellido.Multiline = true;
             this.TextBox_Apellido.Name = "TextBox_Apellido";
             this.TextBox_Apellido.Size = new System.Drawing.Size(100, 20);
             this.TextBox_Apellido.TabIndex = 3;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(278, 24);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(40, 13);
+            this.label11.TabIndex = 51;
+            this.label11.Text = "Codigo";
+            // 
+            // TextBox_Cod_Cliente
+            // 
+            this.TextBox_Cod_Cliente.Location = new System.Drawing.Point(281, 40);
+            this.TextBox_Cod_Cliente.Multiline = true;
+            this.TextBox_Cod_Cliente.Name = "TextBox_Cod_Cliente";
+            this.TextBox_Cod_Cliente.Size = new System.Drawing.Size(100, 20);
+            this.TextBox_Cod_Cliente.TabIndex = 50;
             // 
             // GUI_ABMClientesTarjetas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1157, 506);
+            this.Controls.Add(this.label11);
+            this.Controls.Add(this.TextBox_Cod_Cliente);
             this.Controls.Add(this.TextBox_Tarj_Mayor_Desc);
             this.Controls.Add(this.TextBox_Tarj_Menor_Imp);
             this.Controls.Add(this.label10);
@@ -357,6 +385,7 @@ namespace GUI
             this.Controls.Add(this.DataGrid_ABM_Cliente);
             this.Name = "GUI_ABMClientesTarjetas";
             this.Text = "GUI_ABMClientesTarjetas";
+            this.Load += new System.EventHandler(this.GUI_ABMClientesTarjetas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DataGrid_ABM_Cliente)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataGrid_ABM_Tarjeta)).EndInit();
             this.ResumeLayout(false);
@@ -396,5 +425,7 @@ namespace GUI
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox TextBox_Nombre;
         private System.Windows.Forms.TextBox TextBox_Apellido;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TextBox TextBox_Cod_Cliente;
     }
 }

@@ -15,7 +15,7 @@ namespace BussinesLogic
         {
             oMDesc = new MDescuentosCalculados();
         }
-
+        
         MDescuentosCalculados oMDesc;
 
         public bool Guardar(BEDescuentoCalculado oBEDesc)

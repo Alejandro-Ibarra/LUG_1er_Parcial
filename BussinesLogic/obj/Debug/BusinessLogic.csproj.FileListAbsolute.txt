@@ -1,0 +1,15 @@
+C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\LUG\Tps_Parciales\LUG_1er_Parcial\BussinesLogic\bin\Debug\BussinesLogic.dll
+C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\LUG\Tps_Parciales\LUG_1er_Parcial\BussinesLogic\bin\Debug\BussinesLogic.pdb
+C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\LUG\Tps_Parciales\LUG_1er_Parcial\BussinesLogic\bin\Debug\Abstraccion.dll
+C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\LUG\Tps_Parciales\LUG_1er_Parcial\BussinesLogic\bin\Debug\BusinessEntity.dll
+C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\LUG\Tps_Parciales\LUG_1er_Parcial\BussinesLogic\bin\Debug\Mapper.dll
+C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\LUG\Tps_Parciales\LUG_1er_Parcial\BussinesLogic\bin\Debug\DataAccess.dll
+C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\LUG\Tps_Parciales\LUG_1er_Parcial\BussinesLogic\bin\Debug\Abstraccion.pdb
+C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\LUG\Tps_Parciales\LUG_1er_Parcial\BussinesLogic\bin\Debug\BusinessEntity.pdb
+C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\LUG\Tps_Parciales\LUG_1er_Parcial\BussinesLogic\bin\Debug\Mapper.pdb
+C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\LUG\Tps_Parciales\LUG_1er_Parcial\BussinesLogic\bin\Debug\DataAccess.pdb
+C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\LUG\Tps_Parciales\LUG_1er_Parcial\BussinesLogic\obj\Debug\BusinessLogic.csprojAssemblyReference.cache
+C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\LUG\Tps_Parciales\LUG_1er_Parcial\BussinesLogic\obj\Debug\BusinessLogic.csproj.CoreCompileInputs.cache
+C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\LUG\Tps_Parciales\LUG_1er_Parcial\BussinesLogic\obj\Debug\BusinessLogic.csproj.CopyComplete
+C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\LUG\Tps_Parciales\LUG_1er_Parcial\BussinesLogic\obj\Debug\BussinesLogic.dll
+C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\LUG\Tps_Parciales\LUG_1er_Parcial\BussinesLogic\obj\Debug\BussinesLogic.pdb

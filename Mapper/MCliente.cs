@@ -36,11 +36,11 @@ namespace Mapper
             oConexion = new Conexion();
             if (oBECliente.Tarjeta != null)
             {
-                
-                    string Consulta = " Update Tarjetas SET Estado = 'Baja'  where Codigo = " + oBECliente.Tarjeta.Codigo + "";
-                    
+                foreach (BETarjeta Tarj in oBECliente.Tarjeta)
+                {
+                    string Consulta = " Update Tarjetas SET Estado = 'Baja'  where Codigo = " + Tarj.Codigo + "";
                     oConexion.Escribir(Consulta);
-               
+                }
             }
             string Consulta2 = "Delete from Cliente where Codigo = " + oBECliente.Codigo + "";
             return oConexion.Escribir(Consulta2);
@@ -74,6 +74,7 @@ namespace Mapper
                         oBECliente.Apellido = fila[2].ToString();
                         oBECliente.DNI = Convert.ToInt32(fila[3]);
                         oBECliente.FechaNacimiento = Convert.ToDateTime(fila[4]);
+                        ListaClientes.Add(oBECliente);
                     }
                     DataSet oDataSetTarjeta;
                     string ConsultaSqlTarjeta = "Select Tarjetas.Codigo,Numero,Vencimiento,PorcentajeDescuento,Estado,Rubro,TipoNacProv,Provincia from Tarjetas, Clientes where Clientes.CoDTarjeta = Tarjetas.Codigo;";
@@ -101,8 +102,7 @@ namespace Mapper
                             oBEtarjeta.Estado = fila[4].ToString();
                             oBEtarjeta.Rubro = fila[5].ToString();
                             oBEtarjeta.Pais = fila[6].ToString();
-
-                            oBECliente.Tarjeta = oBEtarjeta;
+                            oBECliente.Tarjeta.Add(oBEtarjeta);
                         }
                     }
                     else
@@ -112,6 +112,21 @@ namespace Mapper
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
             return ListaClientes;
+        }
+
+        public bool AgregarTarjeta_Cliente(BECliente oBECli, BETarjeta oBETarj)
+        {
+            string Consulta = "  INSERT INTO Cliente_Tarjeta(CodCliente, CodTarjeta) values (" + oBECli.Codigo + "," + oBETarj.Codigo + ")";
+            oConexion = new Conexion();
+            return oConexion.Escribir(Consulta);
+
+        }
+
+        public bool QuitarTarjeta_Cliente(BECliente oBECli, BETarjeta oBETarj)
+        {
+            string Consulta = "  Delete from Cliente_Tarjeta where CodCliente = " + oBECli.Codigo + " and CodTarjeta = " + oBETarj.Codigo + "";
+            oConexion = new Conexion();
+            return oConexion.Escribir(Consulta);
         }
     }
 }

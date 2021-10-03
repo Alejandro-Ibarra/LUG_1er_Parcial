@@ -55,9 +55,9 @@ namespace Mapper
                     {
                         BEDescuentoCalculado oBEDesc = new BEDescuentoCalculado();
                         oBEDesc.Codigo = Convert.ToInt32(fila[0]);
-                        oBEDesc.NumeroTarjeta = Convert.ToInt32(fila[0]);
-                        oBEDesc.Tipo = fila[1].ToString();
-                        oBEDesc.DescuentoOtorgado = Convert.ToInt32(fila[0]);
+                        oBEDesc.NumeroTarjeta = Convert.ToInt32(fila[1]);
+                        oBEDesc.Tipo = fila[2].ToString();
+                        oBEDesc.DescuentoOtorgado = Convert.ToInt32(fila[3]);
                         ListaDeDescuentos.Add(oBEDesc);
                     }
                 }

@@ -1,0 +1,9 @@
+C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\LUG\Tps_Parciales\LUG_1er_Parcial\BusinessEntity\bin\Debug\BusinessEntity.dll
+C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\LUG\Tps_Parciales\LUG_1er_Parcial\BusinessEntity\bin\Debug\BusinessEntity.pdb
+C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\LUG\Tps_Parciales\LUG_1er_Parcial\BusinessEntity\bin\Debug\Abstraccion.dll
+C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\LUG\Tps_Parciales\LUG_1er_Parcial\BusinessEntity\bin\Debug\Abstraccion.pdb
+C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\LUG\Tps_Parciales\LUG_1er_Parcial\BusinessEntity\obj\Debug\BusinessEntity.csprojAssemblyReference.cache
+C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\LUG\Tps_Parciales\LUG_1er_Parcial\BusinessEntity\obj\Debug\BusinessEntity.csproj.CoreCompileInputs.cache
+C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\LUG\Tps_Parciales\LUG_1er_Parcial\BusinessEntity\obj\Debug\BusinessEntity.csproj.CopyComplete
+C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\LUG\Tps_Parciales\LUG_1er_Parcial\BusinessEntity\obj\Debug\BusinessEntity.dll
+C:\Users\Gabriel\Desktop\Ale\Estudios\UAI\4 - 2021 - 2do cuatri\LUG\Tps_Parciales\LUG_1er_Parcial\BusinessEntity\obj\Debug\BusinessEntity.pdb

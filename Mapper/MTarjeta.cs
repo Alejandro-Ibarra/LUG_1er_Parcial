@@ -18,18 +18,20 @@ namespace Mapper
         {
             oConexion = new Conexion();
   
-            string consulta1 = "  select  count (CoDTarjeta) from Clientes where CoDTarjeta = '" + oBEtarjeta.Codigo + "'";
+            string consulta1 = "  select count (CoDTarjeta) from Cliente_Tarjeta where CoDTarjeta = '" + oBEtarjeta.Codigo + "'";
 
             bool aux = oConexion.LeerAsociacion(consulta1);
 
             if (aux == true)
             {
-                string Consulta2 = " Update Clientes SET CoDTarjeta = 'null'  where Codigo = " + oBEtarjeta.Codigo + "";
-                oConexion.Escribir(Consulta2);
+                string Consulta2 = "delete from Cliente_Tarjeta where CodTarjeta = '" + oBEtarjeta.Codigo + "'";
+                return oConexion.Escribir(Consulta2);
             }
+            string Consulta3 = " Update Clientes SET CoDTarjeta = 'null'  where Codigo = " + oBEtarjeta.Codigo + "";
+            oConexion.Escribir(Consulta3);
 
-            string Consultaq2 = "Delete from Tarjetas where Codigo = " + oBEtarjeta.Codigo + "";
-            return oConexion.Escribir(Consultaq2);
+            string Consultaq31 = "delete from Tarjetas where Codigo = " + oBEtarjeta.Codigo + "";
+            return oConexion.Escribir(Consultaq31);
         }
 
         public bool Guardar(BETarjeta oBEtarjeta)

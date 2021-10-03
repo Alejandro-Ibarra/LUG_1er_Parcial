@@ -37,5 +37,16 @@ namespace BussinesLogic
         {
             return oMCliente.ListarObjeto(oBECliente);
         }
+
+        public bool AgregarTarjeta_Cliente(BECliente oBECli, BETarjeta oBETarj)
+        {
+            return oMCliente.AgregarTarjeta_Cliente(oBECli, oBETarj);
+
+        }
+
+        public bool QuitarTarjeta_Cliente(BECliente oBECli, BETarjeta oBETarj)
+        {
+            return oMCliente.QuitarTarjeta_Cliente(oBECli, oBETarj);
+        }
     }
 }
