@@ -20,7 +20,7 @@ namespace BussinesLogic
 
         public bool Baja(BETarjetaInternacional oBETarjeta)
         {
-            throw new NotImplementedException();
+            return oMTarjetaInternacional.Baja(oBETarjeta);
         }
 
         public bool Guardar(BETarjetaInternacional oBETarjeta)
@@ -28,14 +28,15 @@ namespace BussinesLogic
             return oMTarjetaInternacional.Guardar(oBETarjeta);
         }
 
-        public BETarjetaInternacional ListarObjeto(BETarjetaInternacional ObjeoBETarjetato)
+        public BETarjetaInternacional ListarObjeto(BETarjetaInternacional oBETarjeta)
         {
-            throw new NotImplementedException();
+            return oMTarjetaInternacional.ListarObjeto(oBETarjeta);
         }
+  
 
         public List<BETarjetaInternacional> ListarTodo()
         {
-            throw new NotImplementedException();
+            return oMTarjetaInternacional.ListarTodo();
         }
     }
 }

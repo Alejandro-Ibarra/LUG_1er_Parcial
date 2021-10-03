@@ -46,7 +46,6 @@
     <Compile Include="BEEntity.cs" />
     <Compile Include="BEPaises.cs" />
     <Compile Include="BEProvincias.cs" />
-    <Compile Include="BERubro.cs" />
     <Compile Include="BETarjeta.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="BETarjetaInternacional.cs" />

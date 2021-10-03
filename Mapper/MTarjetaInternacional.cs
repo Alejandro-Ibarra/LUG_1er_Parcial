@@ -58,12 +58,49 @@ namespace Mapper
 
         public List<BETarjetaInternacional> ListarTodo()
         {
-            throw new NotImplementedException();
+            BETarjetaInternacional oBEtarjetaInt = new BETarjetaInternacional();
+       
+            List<BETarjetaInternacional> ListaTarjetas = new List<BETarjetaInternacional>();
+            DataSet oDataSetTarjetas;
+            oConexion = new Conexion();
+            oDataSetTarjetas = oConexion.LeerDataSet("SELECT Codigo,Numero,Vencimiento,PorcentajeDescuento,Estado,Rubro,TipoNacProv,Provincia FROM Tarjetas");
+            if (oDataSetTarjetas.Tables[0].Rows.Count > 0)
+            {
+                foreach (DataRow fila in oDataSetTarjetas.Tables[0].Rows)
+                {
+                    if (fila[7].ToString() == "Internacional")
+                    {
+                        oBEtarjetaInt.Codigo = Convert.ToInt32(fila[0]);
+                        oBEtarjetaInt.Numero = Convert.ToInt32(fila[1]);
+                        oBEtarjetaInt.Vencimiento = Convert.ToDateTime(fila[2]);
+                        oBEtarjetaInt.Descuento = Convert.ToInt32(fila[3]);
+                        oBEtarjetaInt.Estado = fila[4].ToString();
+                        oBEtarjetaInt.Rubro = fila[5].ToString();
+                        oBEtarjetaInt.Pais = fila[6].ToString();
+                    }
+                    ListaTarjetas.Add(oBEtarjetaInt);
+                }
+            }
+            return ListaTarjetas;
         }
 
         public bool Baja(BETarjetaInternacional oBETarjeta)
         {
-            throw new NotImplementedException();
+            oConexion = new Conexion();
+
+            string consulta1 = "  select count (CoDTarjeta) from Cliente_Tarjeta where CoDTarjeta = '" + oBETarjeta.Codigo + "'";
+            bool aux = oConexion.LeerAsociacion(consulta1);
+
+            if (aux == true)
+            {
+                string Consulta2 = "delete from Cliente_Tarjeta where CodTarjeta = '" + oBETarjeta.Codigo + "'";
+                oConexion.Escribir(Consulta2);
+                string Consulta3 = " Update Clientes SET CoDTarjeta = 'null'  where Codigo = " + oBETarjeta.Codigo + "";
+                oConexion.Escribir(Consulta3);
+            }
+
+            string Consulta4 = "delete from Tarjetas where Codigo = " + oBETarjeta.Codigo + "";
+            return oConexion.Escribir(Consulta4);
         }
     }
 }

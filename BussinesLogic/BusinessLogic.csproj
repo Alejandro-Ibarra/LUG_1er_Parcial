@@ -45,7 +45,6 @@
     <Compile Include="BLDescuentosCalculados.cs" />
     <Compile Include="BLPaises.cs" />
     <Compile Include="BLProvincias.cs" />
-    <Compile Include="BLRubro.cs" />
     <Compile Include="BLTarjeta.cs" />
     <Compile Include="BLTarjetaInternacional.cs" />
     <Compile Include="BLTarjetaNacional.cs" />

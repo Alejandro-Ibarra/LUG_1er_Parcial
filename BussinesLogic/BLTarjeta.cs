@@ -11,6 +11,6 @@ namespace BussinesLogic
 {
     public abstract class BLTarjeta 
     {
-        
+       
     }
 }

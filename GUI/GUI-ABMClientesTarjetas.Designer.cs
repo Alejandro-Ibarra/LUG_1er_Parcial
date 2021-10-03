@@ -61,6 +61,8 @@ namespace GUI
             this.TextBox_Apellido = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.TextBox_Cod_Cliente = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.ComboBox_Estado = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.DataGrid_ABM_Cliente)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataGrid_ABM_Tarjeta)).BeginInit();
             this.SuspendLayout();
@@ -85,10 +87,10 @@ namespace GUI
             // 
             // TextBox_DNI
             // 
-            this.TextBox_DNI.Location = new System.Drawing.Point(25, 82);
+            this.TextBox_DNI.Location = new System.Drawing.Point(12, 83);
             this.TextBox_DNI.Multiline = true;
             this.TextBox_DNI.Name = "TextBox_DNI";
-            this.TextBox_DNI.Size = new System.Drawing.Size(100, 20);
+            this.TextBox_DNI.Size = new System.Drawing.Size(90, 21);
             this.TextBox_DNI.TabIndex = 5;
             // 
             // DateTimePicker_Cliente
@@ -96,13 +98,13 @@ namespace GUI
             this.DateTimePicker_Cliente.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.DateTimePicker_Cliente.Location = new System.Drawing.Point(157, 82);
             this.DateTimePicker_Cliente.Name = "DateTimePicker_Cliente";
-            this.DateTimePicker_Cliente.Size = new System.Drawing.Size(100, 20);
+            this.DateTimePicker_Cliente.Size = new System.Drawing.Size(90, 20);
             this.DateTimePicker_Cliente.TabIndex = 6;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(25, 66);
+            this.label3.Location = new System.Drawing.Point(12, 67);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(26, 13);
             this.label3.TabIndex = 9;
@@ -122,7 +124,7 @@ namespace GUI
             this.TextBox_Numero.Location = new System.Drawing.Point(593, 39);
             this.TextBox_Numero.Multiline = true;
             this.TextBox_Numero.Name = "TextBox_Numero";
-            this.TextBox_Numero.Size = new System.Drawing.Size(100, 20);
+            this.TextBox_Numero.Size = new System.Drawing.Size(90, 21);
             this.TextBox_Numero.TabIndex = 11;
             // 
             // label5
@@ -130,48 +132,48 @@ namespace GUI
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(590, 63);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(113, 13);
+            this.label5.Size = new System.Drawing.Size(83, 13);
             this.label5.TabIndex = 14;
-            this.label5.Text = "Fecha de Vencimiento";
+            this.label5.Text = "Fecha de Venc.";
             // 
             // DateTimePicker_Tarjeta
             // 
             this.DateTimePicker_Tarjeta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.DateTimePicker_Tarjeta.Location = new System.Drawing.Point(593, 79);
             this.DateTimePicker_Tarjeta.Name = "DateTimePicker_Tarjeta";
-            this.DateTimePicker_Tarjeta.Size = new System.Drawing.Size(100, 20);
+            this.DateTimePicker_Tarjeta.Size = new System.Drawing.Size(90, 20);
             this.DateTimePicker_Tarjeta.TabIndex = 13;
             // 
             // ComboBox_Rubro
             // 
             this.ComboBox_Rubro.FormattingEnabled = true;
-            this.ComboBox_Rubro.Location = new System.Drawing.Point(707, 81);
+            this.ComboBox_Rubro.Location = new System.Drawing.Point(689, 81);
             this.ComboBox_Rubro.Name = "ComboBox_Rubro";
-            this.ComboBox_Rubro.Size = new System.Drawing.Size(100, 21);
+            this.ComboBox_Rubro.Size = new System.Drawing.Size(90, 21);
             this.ComboBox_Rubro.TabIndex = 33;
             // 
             // ComboBox_Provincia
             // 
             this.ComboBox_Provincia.FormattingEnabled = true;
-            this.ComboBox_Provincia.Location = new System.Drawing.Point(820, 82);
+            this.ComboBox_Provincia.Location = new System.Drawing.Point(785, 82);
             this.ComboBox_Provincia.Name = "ComboBox_Provincia";
-            this.ComboBox_Provincia.Size = new System.Drawing.Size(100, 21);
+            this.ComboBox_Provincia.Size = new System.Drawing.Size(90, 21);
             this.ComboBox_Provincia.TabIndex = 34;
             // 
             // ComboBox_Pais
             // 
             this.ComboBox_Pais.FormattingEnabled = true;
-            this.ComboBox_Pais.Location = new System.Drawing.Point(820, 38);
+            this.ComboBox_Pais.Location = new System.Drawing.Point(785, 38);
             this.ComboBox_Pais.Name = "ComboBox_Pais";
-            this.ComboBox_Pais.Size = new System.Drawing.Size(100, 21);
+            this.ComboBox_Pais.Size = new System.Drawing.Size(90, 21);
             this.ComboBox_Pais.TabIndex = 35;
             // 
             // TextBox_Monto
             // 
-            this.TextBox_Monto.Location = new System.Drawing.Point(707, 39);
+            this.TextBox_Monto.Location = new System.Drawing.Point(689, 39);
             this.TextBox_Monto.Multiline = true;
             this.TextBox_Monto.Name = "TextBox_Monto";
-            this.TextBox_Monto.Size = new System.Drawing.Size(100, 20);
+            this.TextBox_Monto.Size = new System.Drawing.Size(90, 21);
             this.TextBox_Monto.TabIndex = 36;
             // 
             // Button_Baja_Cliente
@@ -226,7 +228,7 @@ namespace GUI
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(704, 23);
+            this.label7.Location = new System.Drawing.Point(686, 23);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(37, 13);
             this.label7.TabIndex = 44;
@@ -235,7 +237,7 @@ namespace GUI
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(704, 65);
+            this.label8.Location = new System.Drawing.Point(686, 65);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(36, 13);
             this.label8.TabIndex = 45;
@@ -244,7 +246,7 @@ namespace GUI
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(817, 22);
+            this.label9.Location = new System.Drawing.Point(782, 22);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(29, 13);
             this.label9.TabIndex = 46;
@@ -253,7 +255,7 @@ namespace GUI
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(817, 66);
+            this.label10.Location = new System.Drawing.Point(782, 66);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(51, 13);
             this.label10.TabIndex = 47;
@@ -307,7 +309,7 @@ namespace GUI
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(25, 23);
+            this.label1.Location = new System.Drawing.Point(12, 24);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(44, 13);
             this.label1.TabIndex = 7;
@@ -315,10 +317,10 @@ namespace GUI
             // 
             // TextBox_Nombre
             // 
-            this.TextBox_Nombre.Location = new System.Drawing.Point(25, 39);
+            this.TextBox_Nombre.Location = new System.Drawing.Point(12, 40);
             this.TextBox_Nombre.Multiline = true;
             this.TextBox_Nombre.Name = "TextBox_Nombre";
-            this.TextBox_Nombre.Size = new System.Drawing.Size(100, 20);
+            this.TextBox_Nombre.Size = new System.Drawing.Size(90, 21);
             this.TextBox_Nombre.TabIndex = 2;
             // 
             // TextBox_Apellido
@@ -326,13 +328,13 @@ namespace GUI
             this.TextBox_Apellido.Location = new System.Drawing.Point(157, 39);
             this.TextBox_Apellido.Multiline = true;
             this.TextBox_Apellido.Name = "TextBox_Apellido";
-            this.TextBox_Apellido.Size = new System.Drawing.Size(100, 20);
+            this.TextBox_Apellido.Size = new System.Drawing.Size(90, 21);
             this.TextBox_Apellido.TabIndex = 3;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(278, 24);
+            this.label11.Location = new System.Drawing.Point(291, 22);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(40, 13);
             this.label11.TabIndex = 51;
@@ -340,17 +342,36 @@ namespace GUI
             // 
             // TextBox_Cod_Cliente
             // 
-            this.TextBox_Cod_Cliente.Location = new System.Drawing.Point(281, 40);
+            this.TextBox_Cod_Cliente.Location = new System.Drawing.Point(294, 38);
             this.TextBox_Cod_Cliente.Multiline = true;
             this.TextBox_Cod_Cliente.Name = "TextBox_Cod_Cliente";
-            this.TextBox_Cod_Cliente.Size = new System.Drawing.Size(100, 20);
+            this.TextBox_Cod_Cliente.Size = new System.Drawing.Size(90, 21);
             this.TextBox_Cod_Cliente.TabIndex = 50;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(878, 22);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(40, 13);
+            this.label12.TabIndex = 53;
+            this.label12.Text = "Estado";
+            // 
+            // ComboBox_Estado
+            // 
+            this.ComboBox_Estado.FormattingEnabled = true;
+            this.ComboBox_Estado.Location = new System.Drawing.Point(881, 38);
+            this.ComboBox_Estado.Name = "ComboBox_Estado";
+            this.ComboBox_Estado.Size = new System.Drawing.Size(90, 21);
+            this.ComboBox_Estado.TabIndex = 52;
             // 
             // GUI_ABMClientesTarjetas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1157, 506);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.ComboBox_Estado);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.TextBox_Cod_Cliente);
             this.Controls.Add(this.TextBox_Tarj_Mayor_Desc);
@@ -427,5 +448,7 @@ namespace GUI
         private System.Windows.Forms.TextBox TextBox_Apellido;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox TextBox_Cod_Cliente;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.ComboBox ComboBox_Estado;
     }
 }

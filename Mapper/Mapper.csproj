@@ -45,8 +45,6 @@
     <Compile Include="MDescuentosCalculados.cs" />
     <Compile Include="MPaises.cs" />
     <Compile Include="MProvincias.cs" />
-    <Compile Include="MRubro.cs" />
-    <Compile Include="MTarjeta.cs" />
     <Compile Include="MTarjetaInternacional.cs" />
     <Compile Include="MCliente.cs" />
     <Compile Include="MTarjetaNacional.cs" />
