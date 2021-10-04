@@ -31,6 +31,31 @@ namespace Mapper
             return oConexion.Escribir(ConsultaSql);
         }
 
+        public List<BETarjetaNacional> ListarDisponibles()
+        {
+            List<BETarjetaNacional> ListaTarjetas = new List<BETarjetaNacional>();
+            DataSet oDataSetTarjetas;
+            oConexion = new Conexion();
+            oDataSetTarjetas = oConexion.LeerDataSet("SELECT Codigo,Numero,Vencimiento,PorcentajeDescuento,Estado,Rubro,TipoNacProv,Provincia FROM Tarjetas a full outer join Cliente_Tarjeta b on a.Codigo = b.CodTarjeta where a.Codigo IS NULL or b.CodTarjeta IS NULL and a.Provincia IS NOT NULL;");
+            if (oDataSetTarjetas.Tables[0].Rows.Count > 0)
+            {
+                foreach (DataRow fila in oDataSetTarjetas.Tables[0].Rows)
+                {
+                    BETarjetaNacional oBETarjetaNac2 = new BETarjetaNacional();
+                    oBETarjetaNac2.Codigo = Convert.ToInt32(fila[0]);
+                    oBETarjetaNac2.Numero = Convert.ToInt32(fila[1]);
+                    oBETarjetaNac2.Vencimiento = Convert.ToDateTime(fila[2]);
+                    oBETarjetaNac2.Descuento = Convert.ToInt32(fila[3]);
+                    oBETarjetaNac2.Estado = fila[4].ToString();
+                    oBETarjetaNac2.Rubro = fila[5].ToString();
+                    oBETarjetaNac2.Pais = fila[6].ToString();
+                    oBETarjetaNac2.Provincia = fila[7].ToString();
+                    ListaTarjetas.Add(oBETarjetaNac2);
+                }
+            }
+            return ListaTarjetas;
+        }
+
         public BETarjetaNacional ListarObjeto(BETarjetaNacional oBETarjeta)
         {
             oConexion = new Conexion();
@@ -59,8 +84,6 @@ namespace Mapper
 
         public List<BETarjetaNacional> ListarTodo()
         {
-            BETarjetaNacional oBEtarjetaNac = new BETarjetaNacional();
-
             List<BETarjetaNacional> ListaTarjetas = new List<BETarjetaNacional>();
             DataSet oDataSetTarjetas;
             oConexion = new Conexion();

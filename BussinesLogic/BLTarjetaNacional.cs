@@ -37,5 +37,10 @@ namespace BussinesLogic
         {
             return oMTarjetaNacional.ListarTodo();
         }
+
+        public List<BETarjetaNacional> ListarDisponibles()
+        {
+            return oMTarjetaNacional.ListarDisponibles();
+        }
     }
 }

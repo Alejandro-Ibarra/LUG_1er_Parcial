@@ -184,6 +184,7 @@ namespace GUI
             this.TextBox_Monto.Location = new System.Drawing.Point(643, 82);
             this.TextBox_Monto.Multiline = true;
             this.TextBox_Monto.Name = "TextBox_Monto";
+            this.TextBox_Monto.ReadOnly = true;
             this.TextBox_Monto.Size = new System.Drawing.Size(90, 21);
             this.TextBox_Monto.TabIndex = 36;
             // 

@@ -32,7 +32,6 @@ namespace GUI
             this.DataGrid_ABM_Tarjeta_Int.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
         BLCliente oBLCliente;
-        BLTarjeta oBLTarjeta;
         BLTarjetaInternacional oBLTarjetaInt;
         BLTarjetaNacional oBLTarjetaNac;
         BECliente oBECliente;

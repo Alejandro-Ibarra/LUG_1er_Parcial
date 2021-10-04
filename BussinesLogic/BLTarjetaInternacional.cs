@@ -33,10 +33,14 @@ namespace BussinesLogic
             return oMTarjetaInternacional.ListarObjeto(oBETarjeta);
         }
   
-
         public List<BETarjetaInternacional> ListarTodo()
         {
             return oMTarjetaInternacional.ListarTodo();
+        }
+
+        public List<BETarjetaInternacional> ListarDisponibles()
+        {
+            return oMTarjetaInternacional.ListarDisponible();
         }
     }
 }
