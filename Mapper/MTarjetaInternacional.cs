@@ -20,7 +20,7 @@ namespace Mapper
             if (oBETarjeta.Codigo == 0)
             {
                 ConsultaSql = "Insert into Tarjetas (Numero,Vencimiento,PorcentajeDescuento,Estado,Rubro,TipoNacProv) " +
-                    "values('" + oBETarjeta.Numero + "', '" + oBETarjeta.Vencimiento + "', " + oBETarjeta.Descuento + ",'" + oBETarjeta.Estado + "', '" + oBETarjeta.Rubro + "', " + oBETarjeta.Pais + "' ) ";
+                    "values('" + oBETarjeta.Numero + "', '" + oBETarjeta.Vencimiento + "', '" + oBETarjeta.Descuento + "','" + oBETarjeta.Estado + "', '" + oBETarjeta.Rubro + "', '" + oBETarjeta.Pais + "' ) ";
             }
             else
             {
@@ -68,17 +68,19 @@ namespace Mapper
             {
                 foreach (DataRow fila in oDataSetTarjetas.Tables[0].Rows)
                 {
-                    if (fila[7].ToString() == "Internacional")
+                    if (fila[6].ToString() != "Argentina")
                     {
-                        oBEtarjetaInt.Codigo = Convert.ToInt32(fila[0]);
-                        oBEtarjetaInt.Numero = Convert.ToInt32(fila[1]);
-                        oBEtarjetaInt.Vencimiento = Convert.ToDateTime(fila[2]);
-                        oBEtarjetaInt.Descuento = Convert.ToInt32(fila[3]);
-                        oBEtarjetaInt.Estado = fila[4].ToString();
-                        oBEtarjetaInt.Rubro = fila[5].ToString();
-                        oBEtarjetaInt.Pais = fila[6].ToString();
+                        BETarjetaInternacional oBETarjetaInt2 = new BETarjetaInternacional();
+                        oBETarjetaInt2.Codigo = Convert.ToInt32(fila[0]);
+                        oBETarjetaInt2.Numero = Convert.ToInt32(fila[1]);
+                        oBETarjetaInt2.Vencimiento = Convert.ToDateTime(fila[2]);
+                        oBETarjetaInt2.Descuento = Convert.ToInt32(fila[3]);
+                        oBETarjetaInt2.Estado = fila[4].ToString();
+                        oBETarjetaInt2.Rubro = fila[5].ToString();
+                        oBETarjetaInt2.Pais = fila[6].ToString();
+                        ListaTarjetas.Add(oBETarjetaInt2);
                     }
-                    ListaTarjetas.Add(oBEtarjetaInt);
+                    
                 }
             }
             return ListaTarjetas;
@@ -95,11 +97,11 @@ namespace Mapper
             {
                 string Consulta2 = "delete from Cliente_Tarjeta where CodTarjeta = '" + oBETarjeta.Codigo + "'";
                 oConexion.Escribir(Consulta2);
-                string Consulta3 = " Update Clientes SET CoDTarjeta = 'null'  where Codigo = " + oBETarjeta.Codigo + "";
+                string Consulta3 = " Update Clientes SET CoDTarjeta = 'null'  where Codigo = '" + oBETarjeta.Codigo + "'";
                 oConexion.Escribir(Consulta3);
             }
 
-            string Consulta4 = "delete from Tarjetas where Codigo = " + oBETarjeta.Codigo + "";
+            string Consulta4 = "delete from Tarjetas where Codigo = '" + oBETarjeta.Codigo + "'";
             return oConexion.Escribir(Consulta4);
         }
     }

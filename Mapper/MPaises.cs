@@ -31,7 +31,7 @@ namespace Mapper
         public List<BEPaises> ListarTodo()
         {
             oConexion = new Conexion();
-            DataSet oDataSet = oConexion.LeerDataSet("Select * from Provincias;");
+            DataSet oDataSet = oConexion.LeerDataSet("Select * from Paises;");
             List<BEPaises> ListaDePaises = new List<BEPaises>();
             try
             {

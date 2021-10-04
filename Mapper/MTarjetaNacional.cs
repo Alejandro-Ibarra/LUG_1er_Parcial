@@ -20,7 +20,7 @@ namespace Mapper
             if (oBETarjeta.Codigo == 0)
             {
                 ConsultaSql = "Insert into Tarjetas (Numero,Vencimiento,PorcentajeDescuento,Estado,Rubro,TipoNacProv,Provincia) " +
-                    "values('" + oBETarjeta.Numero + "', '" + oBETarjeta.Vencimiento + "', " + oBETarjeta.Descuento + ",'" + oBETarjeta.Estado + "', '" + oBETarjeta.Rubro + "', " + oBETarjeta.Pais + "', " + oBETarjeta.Provincia + "' ) ";
+                    "values('" + oBETarjeta.Numero + "', '" + oBETarjeta.Vencimiento + "', '" + oBETarjeta.Descuento + "','" + oBETarjeta.Estado + "', '" + oBETarjeta.Rubro + "', '" + oBETarjeta.Pais + "', '" + oBETarjeta.Provincia + "' ) ";
             }
             else
             {
@@ -69,17 +69,19 @@ namespace Mapper
             {
                 foreach (DataRow fila in oDataSetTarjetas.Tables[0].Rows)
                 {
-                    if (fila[7].ToString() == "Nacional")
+                    if (fila[6].ToString() == "Argentina")
                     {
-                        oBEtarjetaNac.Codigo = Convert.ToInt32(fila[0]);
-                        oBEtarjetaNac.Numero = Convert.ToInt32(fila[1]);
-                        oBEtarjetaNac.Vencimiento = Convert.ToDateTime(fila[2]);
-                        oBEtarjetaNac.Descuento = Convert.ToInt32(fila[3]);
-                        oBEtarjetaNac.Estado = fila[4].ToString();
-                        oBEtarjetaNac.Rubro = fila[5].ToString();
-                        oBEtarjetaNac.Pais = fila[6].ToString();
+                        BETarjetaNacional oBETarjetaNac2 = new BETarjetaNacional();
+                        oBETarjetaNac2.Codigo = Convert.ToInt32(fila[0]);
+                        oBETarjetaNac2.Numero = Convert.ToInt32(fila[1]);
+                        oBETarjetaNac2.Vencimiento = Convert.ToDateTime(fila[2]);
+                        oBETarjetaNac2.Descuento = Convert.ToInt32(fila[3]);
+                        oBETarjetaNac2.Estado = fila[4].ToString();
+                        oBETarjetaNac2.Rubro = fila[5].ToString();
+                        oBETarjetaNac2.Pais = fila[6].ToString();
+                        oBETarjetaNac2.Provincia = fila[7].ToString();
+                        ListaTarjetas.Add(oBETarjetaNac2);
                     }
-                    ListaTarjetas.Add(oBEtarjetaNac);
                 }
             }
             return ListaTarjetas;
