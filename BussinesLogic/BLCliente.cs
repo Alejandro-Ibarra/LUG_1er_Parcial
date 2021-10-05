@@ -38,15 +38,26 @@ namespace BussinesLogic
             return oMCliente.ListarObjeto(oBECliente);
         }
 
-        public bool AgregarTarjeta_Cliente(BECliente oBECli, BETarjeta oBETarj)
+        public bool AgregarTarjeta_Int_Cliente(BECliente oBECli, BETarjetaInternacional oBETarj)
         {
-            return oMCliente.AgregarTarjeta_Cliente(oBECli, oBETarj);
+            return oMCliente.AgregarTarjeta_Int_Cliente(oBECli, oBETarj);
 
         }
 
-        public bool QuitarTarjeta_Cliente(BECliente oBECli, BETarjeta oBETarj)
+        public bool AgregarTarjeta_Nac_Cliente(BECliente oBECli, BETarjetaNacional oBETarj)
         {
-            return oMCliente.QuitarTarjeta_Cliente(oBECli, oBETarj);
+            return oMCliente.AgregarTarjeta_Nac_Cliente(oBECli, oBETarj);
+
+        }
+
+        public bool QuitarTarjeta_Int_Cliente(BECliente oBECli, BETarjetaInternacional oBETarj)
+        {
+            return oMCliente.QuitarTarjeta_Int_Cliente(oBECli, oBETarj);
+        }
+
+        public bool QuitarTarjeta_Nac_Cliente(BECliente oBECli, BETarjetaNacional oBETarj)
+        {
+            return oMCliente.QuitarTarjeta_Nac_Cliente(oBECli, oBETarj);
         }
     }
 }

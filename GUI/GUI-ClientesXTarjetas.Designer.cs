@@ -47,7 +47,9 @@ namespace GUI
             // 
             this.DataGridView_Clientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DataGridView_Clientes.Location = new System.Drawing.Point(13, 13);
+            this.DataGridView_Clientes.MultiSelect = false;
             this.DataGridView_Clientes.Name = "DataGridView_Clientes";
+            this.DataGridView_Clientes.ReadOnly = true;
             this.DataGridView_Clientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DataGridView_Clientes.Size = new System.Drawing.Size(315, 489);
             this.DataGridView_Clientes.TabIndex = 0;
@@ -57,10 +59,13 @@ namespace GUI
             // 
             this.DataGridView_Tarjeta_De_Cliente_Nac.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DataGridView_Tarjeta_De_Cliente_Nac.Location = new System.Drawing.Point(334, 13);
+            this.DataGridView_Tarjeta_De_Cliente_Nac.MultiSelect = false;
             this.DataGridView_Tarjeta_De_Cliente_Nac.Name = "DataGridView_Tarjeta_De_Cliente_Nac";
+            this.DataGridView_Tarjeta_De_Cliente_Nac.ReadOnly = true;
             this.DataGridView_Tarjeta_De_Cliente_Nac.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DataGridView_Tarjeta_De_Cliente_Nac.Size = new System.Drawing.Size(700, 110);
             this.DataGridView_Tarjeta_De_Cliente_Nac.TabIndex = 1;
+            this.DataGridView_Tarjeta_De_Cliente_Nac.MouseClick += new System.Windows.Forms.MouseEventHandler(this.DataGridView_Tarjeta_De_Cliente_Nac_MouseClick);
             // 
             // Button_Asignar
             // 
@@ -80,33 +85,43 @@ namespace GUI
             this.Button_Borrar_Asignacion.TabIndex = 3;
             this.Button_Borrar_Asignacion.Text = "Desasociar";
             this.Button_Borrar_Asignacion.UseVisualStyleBackColor = true;
+            this.Button_Borrar_Asignacion.Click += new System.EventHandler(this.Button_Borrar_Asignacion_Click);
             // 
             // DataGridView_Tarjetas_Nac_Disponibles
             // 
             this.DataGridView_Tarjetas_Nac_Disponibles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DataGridView_Tarjetas_Nac_Disponibles.Location = new System.Drawing.Point(334, 300);
+            this.DataGridView_Tarjetas_Nac_Disponibles.MultiSelect = false;
             this.DataGridView_Tarjetas_Nac_Disponibles.Name = "DataGridView_Tarjetas_Nac_Disponibles";
+            this.DataGridView_Tarjetas_Nac_Disponibles.ReadOnly = true;
             this.DataGridView_Tarjetas_Nac_Disponibles.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DataGridView_Tarjetas_Nac_Disponibles.Size = new System.Drawing.Size(700, 110);
             this.DataGridView_Tarjetas_Nac_Disponibles.TabIndex = 4;
+            this.DataGridView_Tarjetas_Nac_Disponibles.MouseClick += new System.Windows.Forms.MouseEventHandler(this.DataGridView_Tarjetas_Nac_Disponibles_MouseClick);
             // 
             // DataGridView_Tarjeta_De_Cliente_Int
             // 
             this.DataGridView_Tarjeta_De_Cliente_Int.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DataGridView_Tarjeta_De_Cliente_Int.Location = new System.Drawing.Point(334, 155);
+            this.DataGridView_Tarjeta_De_Cliente_Int.MultiSelect = false;
             this.DataGridView_Tarjeta_De_Cliente_Int.Name = "DataGridView_Tarjeta_De_Cliente_Int";
+            this.DataGridView_Tarjeta_De_Cliente_Int.ReadOnly = true;
             this.DataGridView_Tarjeta_De_Cliente_Int.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DataGridView_Tarjeta_De_Cliente_Int.Size = new System.Drawing.Size(700, 110);
             this.DataGridView_Tarjeta_De_Cliente_Int.TabIndex = 5;
+            this.DataGridView_Tarjeta_De_Cliente_Int.MouseClick += new System.Windows.Forms.MouseEventHandler(this.DataGridView_Tarjeta_De_Cliente_Int_MouseClick);
             // 
             // DataGridView_Tarjetas_Int_Disponibles
             // 
             this.DataGridView_Tarjetas_Int_Disponibles.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DataGridView_Tarjetas_Int_Disponibles.Location = new System.Drawing.Point(334, 441);
+            this.DataGridView_Tarjetas_Int_Disponibles.MultiSelect = false;
             this.DataGridView_Tarjetas_Int_Disponibles.Name = "DataGridView_Tarjetas_Int_Disponibles";
+            this.DataGridView_Tarjetas_Int_Disponibles.ReadOnly = true;
             this.DataGridView_Tarjetas_Int_Disponibles.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DataGridView_Tarjetas_Int_Disponibles.Size = new System.Drawing.Size(700, 110);
             this.DataGridView_Tarjetas_Int_Disponibles.TabIndex = 6;
+            this.DataGridView_Tarjetas_Int_Disponibles.MouseClick += new System.Windows.Forms.MouseEventHandler(this.DataGridView_Tarjetas_Int_Disponibles_MouseClick);
             // 
             // GUI_ClientesXTarjetas
             // 

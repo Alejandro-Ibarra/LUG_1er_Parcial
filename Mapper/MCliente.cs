@@ -196,7 +196,7 @@ namespace Mapper
             return ListaClientes;
         }
 
-        public bool AgregarTarjeta_Cliente(BECliente oBECli, BETarjeta oBETarj)
+        public bool AgregarTarjeta_Int_Cliente(BECliente oBECli, BETarjetaInternacional oBETarj)
         {
             string Consulta = "  INSERT INTO Cliente_Tarjeta(CodCliente, CodTarjeta) values (" + oBECli.Codigo + "," + oBETarj.Codigo + ")";
             oConexion = new Conexion();
@@ -204,11 +204,27 @@ namespace Mapper
 
         }
 
-        public bool QuitarTarjeta_Cliente(BECliente oBECli, BETarjeta oBETarj)
+        public bool AgregarTarjeta_Nac_Cliente(BECliente oBECli, BETarjetaNacional oBETarj)
+        {
+            string Consulta = "  INSERT INTO Cliente_Tarjeta(CodCliente, CodTarjeta) values (" + oBECli.Codigo + "," + oBETarj.Codigo + ")";
+            oConexion = new Conexion();
+            return oConexion.Escribir(Consulta);
+        }
+
+        public bool QuitarTarjeta_Int_Cliente(BECliente oBECli, BETarjetaInternacional oBETarj)
+        {
+            string Consulta = "  Delete from Cliente_Tarjeta where CodCliente = " + oBECli.Codigo + " and CodTarjeta = " + oBETarj.Codigo + "";
+            oConexion = new Conexion();
+            return oConexion.Escribir(Consulta); 
+        }
+
+        public bool QuitarTarjeta_Nac_Cliente(BECliente oBECli, BETarjetaNacional oBETarj)
         {
             string Consulta = "  Delete from Cliente_Tarjeta where CodCliente = " + oBECli.Codigo + " and CodTarjeta = " + oBETarj.Codigo + "";
             oConexion = new Conexion();
             return oConexion.Escribir(Consulta);
         }
+
+        
     }
 }

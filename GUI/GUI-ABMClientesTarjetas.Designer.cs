@@ -77,6 +77,7 @@ namespace GUI
             this.DataGrid_ABM_Cliente.Location = new System.Drawing.Point(12, 118);
             this.DataGrid_ABM_Cliente.MultiSelect = false;
             this.DataGrid_ABM_Cliente.Name = "DataGrid_ABM_Cliente";
+            this.DataGrid_ABM_Cliente.ReadOnly = true;
             this.DataGrid_ABM_Cliente.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DataGrid_ABM_Cliente.Size = new System.Drawing.Size(425, 310);
             this.DataGrid_ABM_Cliente.TabIndex = 0;
@@ -88,6 +89,7 @@ namespace GUI
             this.DataGrid_ABM_Tarjeta_Nac.Location = new System.Drawing.Point(513, 118);
             this.DataGrid_ABM_Tarjeta_Nac.MultiSelect = false;
             this.DataGrid_ABM_Tarjeta_Nac.Name = "DataGrid_ABM_Tarjeta_Nac";
+            this.DataGrid_ABM_Tarjeta_Nac.ReadOnly = true;
             this.DataGrid_ABM_Tarjeta_Nac.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DataGrid_ABM_Tarjeta_Nac.Size = new System.Drawing.Size(587, 131);
             this.DataGrid_ABM_Tarjeta_Nac.TabIndex = 1;
@@ -384,6 +386,7 @@ namespace GUI
             this.DataGrid_ABM_Tarjeta_Int.Location = new System.Drawing.Point(514, 274);
             this.DataGrid_ABM_Tarjeta_Int.MultiSelect = false;
             this.DataGrid_ABM_Tarjeta_Int.Name = "DataGrid_ABM_Tarjeta_Int";
+            this.DataGrid_ABM_Tarjeta_Int.ReadOnly = true;
             this.DataGrid_ABM_Tarjeta_Int.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DataGrid_ABM_Tarjeta_Int.Size = new System.Drawing.Size(587, 131);
             this.DataGrid_ABM_Tarjeta_Int.TabIndex = 54;
