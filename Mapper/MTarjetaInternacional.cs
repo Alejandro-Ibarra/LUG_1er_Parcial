@@ -19,13 +19,13 @@ namespace Mapper
             string ConsultaSql;
             if (oBETarjeta.Codigo == 0)
             {
-                ConsultaSql = "Insert into Tarjetas (Numero,Vencimiento,PorcentajeDescuento,Estado,Rubro,TipoNacProv) " +
-                    "values('" + oBETarjeta.Numero + "', '" + oBETarjeta.Vencimiento + "', '" + oBETarjeta.Descuento + "','" + oBETarjeta.Estado + "', '" + oBETarjeta.Rubro + "', '" + oBETarjeta.Pais + "' ) ";
+                ConsultaSql = "Insert into Tarjetas (Numero,Vencimiento,Estado,Rubro,TipoNacProv) " +
+                    "values('" + oBETarjeta.Numero + "', '" + oBETarjeta.Vencimiento  + "','" + oBETarjeta.Estado + "', '" + oBETarjeta.Rubro + "', '" + oBETarjeta.Pais + "' ) ";
             }
             else
             {
-                ConsultaSql = "Update Tarjetas SET Numero = '" + oBETarjeta.Numero + "', Vencimiento = '" + oBETarjeta.Vencimiento + "', PorcentajeDescuento = '" + oBETarjeta.Descuento + 
-                    "', Estado = '" + oBETarjeta.Estado + "', Rubro = '" + oBETarjeta.Rubro + "', TipoNacProv = '" + oBETarjeta.Pais + "' where codigo = " + oBETarjeta.Codigo + "";
+                ConsultaSql = "Update Tarjetas SET Numero = '" + oBETarjeta.Numero + "', Vencimiento = '" + oBETarjeta.Vencimiento  + 
+                    "', Estado = '" + oBETarjeta.Estado + "', Rubro = '" + oBETarjeta.Rubro + "', Saldo = '" + oBETarjeta.Saldo + "', TipoNacProv = '" + oBETarjeta.Pais + "' where codigo = " + oBETarjeta.Codigo + "";
             }
             oConexion = new Conexion();
             return oConexion.Escribir(ConsultaSql);
@@ -36,7 +36,7 @@ namespace Mapper
             List<BETarjetaInternacional> ListaTarjetas = new List<BETarjetaInternacional>();
             DataSet oDataSetTarjetas;
             oConexion = new Conexion();
-            oDataSetTarjetas = oConexion.LeerDataSet("SELECT Codigo,Numero,Vencimiento,PorcentajeDescuento,Estado,Rubro,TipoNacProv,Provincia FROM Tarjetas a full outer join Cliente_Tarjeta b on a.Codigo = b.CodTarjeta where a.Codigo IS NULL or b.CodTarjeta IS NULL and a.Provincia IS NULL;");
+            oDataSetTarjetas = oConexion.LeerDataSet("SELECT Codigo,Numero,Vencimiento,Estado,Rubro,TipoNacProv,Provincia FROM Tarjetas a full outer join Cliente_Tarjeta b on a.Codigo = b.CodTarjeta where a.Codigo IS NULL or b.CodTarjeta IS NULL and a.Provincia IS NULL;");
             if (oDataSetTarjetas.Tables[0].Rows.Count > 0)
             {
                 foreach (DataRow fila in oDataSetTarjetas.Tables[0].Rows)
@@ -45,10 +45,9 @@ namespace Mapper
                     oBETarjetaInt2.Codigo = Convert.ToInt32(fila[0]);
                     oBETarjetaInt2.Numero = Convert.ToInt32(fila[1]);
                     oBETarjetaInt2.Vencimiento = Convert.ToDateTime(fila[2]);
-                    oBETarjetaInt2.Descuento = Convert.ToInt32(fila[3]);
-                    oBETarjetaInt2.Estado = fila[4].ToString();
-                    oBETarjetaInt2.Rubro = fila[5].ToString();
-                    oBETarjetaInt2.Pais = fila[6].ToString();
+                    oBETarjetaInt2.Estado = fila[3].ToString();
+                    oBETarjetaInt2.Rubro = fila[4].ToString();
+                    oBETarjetaInt2.Pais = fila[5].ToString();
                     ListaTarjetas.Add(oBETarjetaInt2);
                 }
             }
@@ -58,7 +57,7 @@ namespace Mapper
         public BETarjetaInternacional ListarObjeto(BETarjetaInternacional oBETarjeta)
         {
             oConexion = new Conexion();
-            string Consulta = "SELECT Codigo,Numero,Vencimiento,PorcentajeDescuento,Estado,Rubro,TipoNacProv FROM Tarjetas where Codigo =" + oBETarjeta.Codigo;
+            string Consulta = "SELECT Codigo,Numero,Vencimiento,Estado,Rubro,TipoNacProv FROM Tarjetas where Codigo =" + oBETarjeta.Codigo;
             DataSet oDataSet = oConexion.LeerDataSet(Consulta);
 
             if (oDataSet.Tables[0].Rows.Count > 0)
@@ -70,10 +69,9 @@ namespace Mapper
                     oBETarjInt.Codigo = Convert.ToInt32(fila[0]);
                     oBETarjInt.Numero = Convert.ToInt32(fila[1]);
                     oBETarjInt.Vencimiento = Convert.ToDateTime(fila[2]);
-                    oBETarjInt.Descuento = Convert.ToInt32(fila[3]);
-                    oBETarjInt.Estado = fila[4].ToString();
-                    oBETarjInt.Rubro = fila[5].ToString();
-                    oBETarjInt.Pais = fila[6].ToString();
+                    oBETarjInt.Estado = fila[3].ToString();
+                    oBETarjInt.Rubro = fila[4].ToString();
+                    oBETarjInt.Pais = fila[5].ToString();
                 }
                 return oBETarjInt;
             }
@@ -87,21 +85,20 @@ namespace Mapper
             List<BETarjetaInternacional> ListaTarjetas = new List<BETarjetaInternacional>();
             DataSet oDataSetTarjetas;
             oConexion = new Conexion();
-            oDataSetTarjetas = oConexion.LeerDataSet("SELECT Codigo,Numero,Vencimiento,PorcentajeDescuento,Estado,Rubro,TipoNacProv,Provincia FROM Tarjetas");
+            oDataSetTarjetas = oConexion.LeerDataSet("SELECT Codigo,Numero,Vencimiento,Estado,Rubro,TipoNacProv,Provincia FROM Tarjetas");
             if (oDataSetTarjetas.Tables[0].Rows.Count > 0)
             {
                 foreach (DataRow fila in oDataSetTarjetas.Tables[0].Rows)
                 {
-                    if (fila[6].ToString() != "Argentina")
+                    if (fila[5].ToString() != "Argentina")
                     {
                         BETarjetaInternacional oBETarjetaInt2 = new BETarjetaInternacional();
                         oBETarjetaInt2.Codigo = Convert.ToInt32(fila[0]);
                         oBETarjetaInt2.Numero = Convert.ToInt32(fila[1]);
                         oBETarjetaInt2.Vencimiento = Convert.ToDateTime(fila[2]);
-                        oBETarjetaInt2.Descuento = Convert.ToInt32(fila[3]);
-                        oBETarjetaInt2.Estado = fila[4].ToString();
-                        oBETarjetaInt2.Rubro = fila[5].ToString();
-                        oBETarjetaInt2.Pais = fila[6].ToString();
+                        oBETarjetaInt2.Estado = fila[3].ToString();
+                        oBETarjetaInt2.Rubro = fila[4].ToString();
+                        oBETarjetaInt2.Pais = fila[5].ToString();
                         ListaTarjetas.Add(oBETarjetaInt2);
                     }
                     

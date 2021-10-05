@@ -70,7 +70,7 @@ namespace GUI
         {
             this.DataGridView_Tarjeta_De_Cliente_Nac.DataSource = null;
             this.DataGridView_Tarjeta_De_Cliente_Nac.Rows.Clear();
-            this.DataGridView_Tarjeta_De_Cliente_Nac.DataSource = ListarTarjCliNac(oBECliente);
+            this.DataGridView_Tarjeta_De_Cliente_Nac.DataSource = ListaCliTarjNac(oBECliente);
             this.DataGridView_Tarjeta_De_Cliente_Nac.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
         }
 
@@ -78,51 +78,56 @@ namespace GUI
         {
             this.DataGridView_Tarjeta_De_Cliente_Int.DataSource = null;
             this.DataGridView_Tarjeta_De_Cliente_Int.Rows.Clear();
-            this.DataGridView_Tarjeta_De_Cliente_Int.DataSource = ListarTarjCliInt(oBECliente);
+            this.DataGridView_Tarjeta_De_Cliente_Int.DataSource = ListaCliTarjInt(oBECliente);
             this.DataGridView_Tarjeta_De_Cliente_Int.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
         }
 
-        private List<BETarjetaNacional> ListarTarjCliNac(BECliente oAuXBeCliente)
+        public List<BETarjetaNacional> ListaCliTarjNac(BECliente oBECliente)
         {
-            List<BETarjetaNacional> ListTarjNac = new List<BETarjetaNacional>();
-            if (oAuXBeCliente.TarjetaNac != null)
+            List<BETarjetaNacional> ListaTarjNac = new List<BETarjetaNacional>();
+            if (oBECliente.Tarjeta != null)
             {
-                foreach (BETarjetaNacional TN in oAuXBeCliente.TarjetaNac)
+                foreach (BETarjeta tarj in oBECliente.Tarjeta)
                 {
-                    ListTarjNac.Add(TN);
+                    if (tarj is BETarjetaNacional)
+                    {
+                        ListaTarjNac.Add((BETarjetaNacional)tarj);
+                    }
                 }
             }
-            return ListTarjNac;
+            return ListaTarjNac;
         }
-
-        private List<BETarjetaInternacional> ListarTarjCliInt(BECliente oAuXBeCliente)
+        public List<BETarjetaInternacional> ListaCliTarjInt(BECliente oBECliente)
         {
-            List<BETarjetaInternacional> ListTarjInt = new List<BETarjetaInternacional>();
-            if (oAuXBeCliente.TarjetaInt != null)
+            List<BETarjetaInternacional> ListaTarjInt = new List<BETarjetaInternacional>();
+            if (oBECliente.Tarjeta != null)
             {
-                foreach (BETarjetaInternacional TN in oAuXBeCliente.TarjetaInt)
+                foreach (BETarjeta tarj in oBECliente.Tarjeta)
                 {
-                    ListTarjInt.Add(TN);
+                    if (tarj is BETarjetaInternacional)
+                    {
+                        ListaTarjInt.Add((BETarjetaInternacional)tarj);
+                    }
                 }
             }
-            return ListTarjInt;
+            return ListaTarjInt;
         }
 
         private bool VerificarEstadoTarjeta(BECliente ClieAux)
         {
             bool aux = true;
             BECliente ClieAux2 = oBLCliente.ListarObjeto(ClieAux);
-            if (ClieAux2.TarjetaInt != null)
+            if (ClieAux2.Tarjeta != null)
             {
-                foreach (BETarjetaInternacional TarjInt in ClieAux2.TarjetaInt)
+                foreach (BETarjeta Tarj in ClieAux2.Tarjeta)
                 {
-                    if (TarjInt.Estado == "Alta")
+                    if (Tarj.Estado == "Alta")
                     {
                         aux = false;
                     }
                 }
             }
-            if (ClieAux2.TarjetaNac != null)
+           /* if (ClieAux2.TarjetaNac != null)
             {
                 foreach (BETarjetaNacional TarjNac in ClieAux2.TarjetaNac)
                 {
@@ -131,7 +136,7 @@ namespace GUI
                         aux = false;
                     }
                 }
-            }
+            }*/
             return aux;
         }
 
@@ -152,6 +157,8 @@ namespace GUI
                         oBlTarjetaInt.Guardar(oBETarjInt);
                         oBLCliente.AgregarTarjeta_Int_Cliente(oBEClienteAux, oBETarjInt);
                         CargarGrillaTarjDispInt();
+                        oBEClienteAux = oBLCliente.ListarObjeto(oBEClienteAux);
+                        CargarGrillaTarjCliInt(oBEClienteAux);
                     }
                     else if(DataGridView_Tarjetas_Nac_Disponibles.SelectedRows.Count > 0)
                     {
@@ -161,6 +168,8 @@ namespace GUI
                         oBLTarjetaNac.Guardar(oBETarjNac);
                         oBLCliente.AgregarTarjeta_Nac_Cliente(oBEClienteAux, oBETarjNac);
                         CargarGrillaTarjDispNac();
+                        oBEClienteAux = oBLCliente.ListarObjeto(oBEClienteAux);
+                        CargarGrillaTarjCliNac(oBEClienteAux);
                     }
                 }
                 else
@@ -173,8 +182,8 @@ namespace GUI
             {
                 MessageBox.Show("Ingrese el monto a cargar a la tarjeta");
             }
-            CargarGrillaTarjCliNac(oBEClienteAux);
-            CargarGrillaTarjCliInt(oBEClienteAux);
+            
+
         }
 
         private void Button_Borrar_Asignacion_Click(object sender, EventArgs e)

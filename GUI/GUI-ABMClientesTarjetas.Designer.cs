@@ -61,11 +61,11 @@ namespace GUI
             this.TextBox_Apellido = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.TextBox_Cod_Cliente = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.ComboBox_Estado = new System.Windows.Forms.ComboBox();
             this.DataGrid_ABM_Tarjeta_Int = new System.Windows.Forms.DataGridView();
             this.label13 = new System.Windows.Forms.Label();
             this.TextBox_Cod_tarjeta = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DataGrid_ABM_Cliente)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataGrid_ABM_Tarjeta_Nac)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataGrid_ABM_Tarjeta_Int)).BeginInit();
@@ -81,19 +81,19 @@ namespace GUI
             this.DataGrid_ABM_Cliente.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DataGrid_ABM_Cliente.Size = new System.Drawing.Size(425, 310);
             this.DataGrid_ABM_Cliente.TabIndex = 0;
-            this.DataGrid_ABM_Cliente.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGrid_ABM_Cliente_CellContentClick);
+            this.DataGrid_ABM_Cliente.MouseClick += new System.Windows.Forms.MouseEventHandler(this.DataGrid_ABM_Cliente_MouseClick);
             // 
             // DataGrid_ABM_Tarjeta_Nac
             // 
             this.DataGrid_ABM_Tarjeta_Nac.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DataGrid_ABM_Tarjeta_Nac.Location = new System.Drawing.Point(513, 118);
+            this.DataGrid_ABM_Tarjeta_Nac.Location = new System.Drawing.Point(513, 134);
             this.DataGrid_ABM_Tarjeta_Nac.MultiSelect = false;
             this.DataGrid_ABM_Tarjeta_Nac.Name = "DataGrid_ABM_Tarjeta_Nac";
             this.DataGrid_ABM_Tarjeta_Nac.ReadOnly = true;
             this.DataGrid_ABM_Tarjeta_Nac.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DataGrid_ABM_Tarjeta_Nac.Size = new System.Drawing.Size(587, 131);
             this.DataGrid_ABM_Tarjeta_Nac.TabIndex = 1;
-            this.DataGrid_ABM_Tarjeta_Nac.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGrid_ABM_Tarjeta_CellContentClick);
+            this.DataGrid_ABM_Tarjeta_Nac.MouseClick += new System.Windows.Forms.MouseEventHandler(this.DataGrid_ABM_Tarjeta_Nac_MouseClick);
             // 
             // TextBox_DNI
             // 
@@ -366,34 +366,17 @@ namespace GUI
             this.TextBox_Cod_Cliente.Size = new System.Drawing.Size(90, 21);
             this.TextBox_Cod_Cliente.TabIndex = 50;
             // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(892, 28);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(40, 13);
-            this.label12.TabIndex = 53;
-            this.label12.Text = "Estado";
-            // 
-            // ComboBox_Estado
-            // 
-            this.ComboBox_Estado.FormattingEnabled = true;
-            this.ComboBox_Estado.Location = new System.Drawing.Point(895, 44);
-            this.ComboBox_Estado.Name = "ComboBox_Estado";
-            this.ComboBox_Estado.Size = new System.Drawing.Size(90, 21);
-            this.ComboBox_Estado.TabIndex = 52;
-            // 
             // DataGrid_ABM_Tarjeta_Int
             // 
             this.DataGrid_ABM_Tarjeta_Int.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DataGrid_ABM_Tarjeta_Int.Location = new System.Drawing.Point(514, 274);
+            this.DataGrid_ABM_Tarjeta_Int.Location = new System.Drawing.Point(514, 297);
             this.DataGrid_ABM_Tarjeta_Int.MultiSelect = false;
             this.DataGrid_ABM_Tarjeta_Int.Name = "DataGrid_ABM_Tarjeta_Int";
             this.DataGrid_ABM_Tarjeta_Int.ReadOnly = true;
             this.DataGrid_ABM_Tarjeta_Int.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DataGrid_ABM_Tarjeta_Int.Size = new System.Drawing.Size(587, 131);
             this.DataGrid_ABM_Tarjeta_Int.TabIndex = 54;
-            this.DataGrid_ABM_Tarjeta_Int.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGrid_ABM_Tarjeta_Int_CellContentClick);
+            this.DataGrid_ABM_Tarjeta_Int.MouseClick += new System.Windows.Forms.MouseEventHandler(this.DataGrid_ABM_Tarjeta_Int_MouseClick);
             // 
             // label13
             // 
@@ -413,16 +396,34 @@ namespace GUI
             this.TextBox_Cod_tarjeta.Size = new System.Drawing.Size(90, 21);
             this.TextBox_Cod_tarjeta.TabIndex = 55;
             // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(511, 118);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(101, 13);
+            this.label12.TabIndex = 57;
+            this.label12.Text = "Tarjetas Nacionales";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(511, 281);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(120, 13);
+            this.label14.TabIndex = 58;
+            this.label14.Text = "Tarjetas Internacionales";
+            // 
             // GUI_ABMClientesTarjetas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1157, 506);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.label12);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.TextBox_Cod_tarjeta);
             this.Controls.Add(this.DataGrid_ABM_Tarjeta_Int);
-            this.Controls.Add(this.label12);
-            this.Controls.Add(this.ComboBox_Estado);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.TextBox_Cod_Cliente);
             this.Controls.Add(this.TextBox_Tarj_Mayor_Desc);
@@ -500,10 +501,10 @@ namespace GUI
         private System.Windows.Forms.TextBox TextBox_Apellido;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox TextBox_Cod_Cliente;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.ComboBox ComboBox_Estado;
         private System.Windows.Forms.DataGridView DataGrid_ABM_Tarjeta_Int;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox TextBox_Cod_tarjeta;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label14;
     }
 }

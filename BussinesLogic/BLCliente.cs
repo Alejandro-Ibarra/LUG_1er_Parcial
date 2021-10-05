@@ -36,7 +36,7 @@ namespace BussinesLogic
         public BECliente ListarObjeto(BECliente oBECliente)
         {
             return oMCliente.ListarObjeto(oBECliente);
-        }
+         }
 
         public bool AgregarTarjeta_Int_Cliente(BECliente oBECli, BETarjetaInternacional oBETarj)
         {

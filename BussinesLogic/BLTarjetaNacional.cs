@@ -42,5 +42,10 @@ namespace BussinesLogic
         {
             return oMTarjetaNacional.ListarDisponibles();
         }
+
+        public override int ObtenerDescuento()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

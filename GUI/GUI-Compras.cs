@@ -46,20 +46,20 @@ namespace GUI
             
         }
 
-        private List<BETarjetaInternacional> DevolverTarjintCliente(BECliente oAuXBeCliente)
+        private List<BETarjeta> DevolverTarCliente(BECliente oAuXBeCliente)
         {
-            List<BETarjetaInternacional> ListTarjInt = new List<BETarjetaInternacional>();
+            List<BETarjeta> ListTarjInt = new List<BETarjeta>();
 
-            if (oAuXBeCliente.TarjetaInt != null)
+            if (oAuXBeCliente.Tarjeta != null)
             {
-                foreach (BETarjetaInternacional TN in oAuXBeCliente.TarjetaInt)
+                foreach (BETarjetaInternacional TN in oAuXBeCliente.Tarjeta)
                 {
                     ListTarjInt.Add(TN);
                 }
             }
             return ListTarjInt;
         }
-
+        /*
         private List<BETarjetaNacional> DevolverTarjNacCliente(BECliente oAuXBeCliente)
         {
             List<BETarjetaNacional> ListTarjNac = new List<BETarjetaNacional>();
@@ -73,21 +73,22 @@ namespace GUI
             }
             return ListTarjNac;
         }
-
+        */
         private void AsignarTarjetaATextBox(BECliente ClieAux)
         {
             BECliente ClieAux2 = oBLCliente.ListarObjeto(ClieAux);
-            if (ClieAux2.TarjetaInt != null)
+            if (ClieAux2.Tarjeta != null)
             {
-                foreach (BETarjetaInternacional TarjInt in ClieAux2.TarjetaInt)
+                foreach (BETarjeta Tarj in ClieAux2.Tarjeta)
                 {
-                    if (TarjInt.Estado == "Alta")
+                    if (Tarj.Estado == "Alta")
                     {
-                        TextBox_Numero_Tarjeta.Text = TarjInt.Numero.ToString();
-                        TextBox_Saldo_Tarjeta.Text = TarjInt.Saldo.ToString();
+                        TextBox_Numero_Tarjeta.Text = Tarj.Numero.ToString();
+                        TextBox_Saldo_Tarjeta.Text = Tarj.Saldo.ToString();
                     }
                 }
             }
+            /*
             if (ClieAux2.TarjetaNac != null)
             {
                 foreach (BETarjetaNacional TarjNac in ClieAux2.TarjetaNac)
@@ -97,7 +98,7 @@ namespace GUI
 
                     }
                 }
-            }
+            }*/
         }
 
         private void DataGridView_Clientes_MouseClick(object sender, MouseEventArgs e)

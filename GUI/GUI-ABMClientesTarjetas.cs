@@ -43,7 +43,7 @@ namespace GUI
 
         private void GUI_ABMClientesTarjetas_Load(object sender, EventArgs e)
         {
-            CargarComboBoxEstadoTarj();
+            //CargarComboBoxEstadoTarj();
             CargarComboBoxPaises();
             CargarComboBoxProvincias();
             CargarComboBoxRubro();
@@ -221,24 +221,6 @@ namespace GUI
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
-        void CargarComboBoxEstadoTarj()
-        {
-            try
-            {
-                List<string> Estados = new List<string>();
-                Estados.Add("Alta");
-                Estados.Add("Baja");
-                Estados.Add("Sin Saldo");
-                Estados.Add("Vencida");
-
-                ComboBox_Estado.DataSource = null;
-                ComboBox_Estado.DataSource = Estados;
-                ComboBox_Estado.DisplayMember = "Nombre";
-                ComboBox_Estado.Refresh();
-            }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
-        }
-
         void CargarGrillaCliente()
         {
             this.DataGrid_ABM_Cliente.DataSource = null;
@@ -273,7 +255,7 @@ namespace GUI
                 if (ComboBox_Pais.SelectedItem.ToString() != "Argentina")
                 {
                     oBETarjetaInt.Numero = Convert.ToInt32(TextBox_Numero.Text);
-                    oBETarjetaInt.Estado = ComboBox_Estado.SelectedItem.ToString();
+                    //oBETarjetaInt.Estado = ComboBox_Estado.SelectedItem.ToString();
                     oBETarjetaInt.Pais = ComboBox_Pais.SelectedItem.ToString();
                     oBETarjetaInt.Vencimiento = DateTimePicker_Tarjeta.Value;
                     oBETarjetaInt.Rubro = ComboBox_Rubro.SelectedItem.ToString();
@@ -281,7 +263,7 @@ namespace GUI
                 else
                 {
                     oBETarjetaNac.Numero = Convert.ToInt32(TextBox_Numero.Text);
-                    oBETarjetaNac.Estado = ComboBox_Estado.SelectedItem.ToString();
+                    //oBETarjetaNac.Estado = ComboBox_Estado.SelectedItem.ToString();
                     oBETarjetaNac.Pais = ComboBox_Pais.SelectedItem.ToString();
                     oBETarjetaNac.Vencimiento = DateTimePicker_Tarjeta.Value;
                     oBETarjetaNac.Rubro = ComboBox_Rubro.SelectedItem.ToString();
@@ -359,31 +341,6 @@ namespace GUI
             }
         }
 
-        private void DataGrid_ABM_Cliente_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            try
-            {
-                oBECliente = (BECliente)this.DataGrid_ABM_Cliente.CurrentRow.DataBoundItem;
-                AsignarClienteAControles(oBECliente);
-            }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
-        }
-
-        private void DataGrid_ABM_Tarjeta_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            DataGrid_ABM_Tarjeta_Int.ClearSelection();
-            oBETarjetaNac = (BETarjetaNacional)this.DataGrid_ABM_Tarjeta_Nac.CurrentRow.DataBoundItem;
-            AsignarTarjetaAControles(oBETarjetaNac);
-
-        }
-
-        private void DataGrid_ABM_Tarjeta_Int_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            DataGrid_ABM_Tarjeta_Nac.ClearSelection();
-            oBETarjetaInt = (BETarjetaInternacional)this.DataGrid_ABM_Tarjeta_Int.CurrentRow.DataBoundItem;
-            AsignarTarjetaAControles(oBETarjetaInt);
-        }
-
         private void HabilitarComboProvincia()
         {
             if (ComboBox_Pais.SelectedItem.ToString() == "Argentina")
@@ -400,6 +357,34 @@ namespace GUI
         private void ComboBox_Pais_SelectedValueChanged(object sender, EventArgs e)
         {
             HabilitarComboProvincia();
+        }
+
+        private void DataGrid_ABM_Cliente_MouseClick(object sender, MouseEventArgs e)
+        {
+            try
+            {
+                oBECliente = (BECliente)this.DataGrid_ABM_Cliente.CurrentRow.DataBoundItem;
+                AsignarClienteAControles(oBECliente);
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+        }
+
+        private void DataGrid_ABM_Tarjeta_Nac_MouseClick(object sender, MouseEventArgs e)
+        {
+            try
+            {
+                DataGrid_ABM_Tarjeta_Int.ClearSelection();
+                oBETarjetaNac = (BETarjetaNacional)this.DataGrid_ABM_Tarjeta_Nac.CurrentRow.DataBoundItem;
+                AsignarTarjetaAControles(oBETarjetaNac);
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
+        }
+
+        private void DataGrid_ABM_Tarjeta_Int_MouseClick(object sender, MouseEventArgs e)
+        {
+            DataGrid_ABM_Tarjeta_Nac.ClearSelection();
+            oBETarjetaInt = (BETarjetaInternacional)this.DataGrid_ABM_Tarjeta_Int.CurrentRow.DataBoundItem;
+            AsignarTarjetaAControles(oBETarjetaInt);
         }
     }
 }
