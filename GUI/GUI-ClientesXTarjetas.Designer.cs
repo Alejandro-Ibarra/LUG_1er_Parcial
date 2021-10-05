@@ -36,6 +36,8 @@ namespace GUI
             this.DataGridView_Tarjetas_Nac_Disponibles = new System.Windows.Forms.DataGridView();
             this.DataGridView_Tarjeta_De_Cliente_Int = new System.Windows.Forms.DataGridView();
             this.DataGridView_Tarjetas_Int_Disponibles = new System.Windows.Forms.DataGridView();
+            this.TextBox_Monto = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridView_Clientes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridView_Tarjeta_De_Cliente_Nac)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridView_Tarjetas_Nac_Disponibles)).BeginInit();
@@ -53,7 +55,7 @@ namespace GUI
             this.DataGridView_Clientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DataGridView_Clientes.Size = new System.Drawing.Size(315, 489);
             this.DataGridView_Clientes.TabIndex = 0;
-            this.DataGridView_Clientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView_Clientes_CellContentClick);
+            this.DataGridView_Clientes.MouseClick += new System.Windows.Forms.MouseEventHandler(this.DataGridView_Clientes_MouseClick);
             // 
             // DataGridView_Tarjeta_De_Cliente_Nac
             // 
@@ -69,9 +71,9 @@ namespace GUI
             // 
             // Button_Asignar
             // 
-            this.Button_Asignar.Location = new System.Drawing.Point(75, 528);
+            this.Button_Asignar.Location = new System.Drawing.Point(13, 508);
             this.Button_Asignar.Name = "Button_Asignar";
-            this.Button_Asignar.Size = new System.Drawing.Size(75, 23);
+            this.Button_Asignar.Size = new System.Drawing.Size(118, 23);
             this.Button_Asignar.TabIndex = 2;
             this.Button_Asignar.Text = "Asociar tarjeta";
             this.Button_Asignar.UseVisualStyleBackColor = true;
@@ -79,11 +81,11 @@ namespace GUI
             // 
             // Button_Borrar_Asignacion
             // 
-            this.Button_Borrar_Asignacion.Location = new System.Drawing.Point(156, 528);
+            this.Button_Borrar_Asignacion.Location = new System.Drawing.Point(13, 548);
             this.Button_Borrar_Asignacion.Name = "Button_Borrar_Asignacion";
-            this.Button_Borrar_Asignacion.Size = new System.Drawing.Size(75, 23);
+            this.Button_Borrar_Asignacion.Size = new System.Drawing.Size(118, 23);
             this.Button_Borrar_Asignacion.TabIndex = 3;
-            this.Button_Borrar_Asignacion.Text = "Desasociar";
+            this.Button_Borrar_Asignacion.Text = "Desasociar Tarjeta";
             this.Button_Borrar_Asignacion.UseVisualStyleBackColor = true;
             this.Button_Borrar_Asignacion.Click += new System.EventHandler(this.Button_Borrar_Asignacion_Click);
             // 
@@ -123,11 +125,29 @@ namespace GUI
             this.DataGridView_Tarjetas_Int_Disponibles.TabIndex = 6;
             this.DataGridView_Tarjetas_Int_Disponibles.MouseClick += new System.Windows.Forms.MouseEventHandler(this.DataGridView_Tarjetas_Int_Disponibles_MouseClick);
             // 
+            // TextBox_Monto
+            // 
+            this.TextBox_Monto.Location = new System.Drawing.Point(155, 548);
+            this.TextBox_Monto.Multiline = true;
+            this.TextBox_Monto.Name = "TextBox_Monto";
+            this.TextBox_Monto.Size = new System.Drawing.Size(129, 23);
+            this.TextBox_Monto.TabIndex = 7;
+            // 
+            // label1
+            // 
+            this.label1.Location = new System.Drawing.Point(169, 513);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(115, 26);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Ingrese el monto a cargar en la tarjeta";
+            // 
             // GUI_ClientesXTarjetas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1066, 593);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.TextBox_Monto);
             this.Controls.Add(this.DataGridView_Tarjetas_Int_Disponibles);
             this.Controls.Add(this.DataGridView_Tarjeta_De_Cliente_Int);
             this.Controls.Add(this.DataGridView_Tarjetas_Nac_Disponibles);
@@ -144,6 +164,7 @@ namespace GUI
             ((System.ComponentModel.ISupportInitialize)(this.DataGridView_Tarjeta_De_Cliente_Int)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataGridView_Tarjetas_Int_Disponibles)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -156,5 +177,7 @@ namespace GUI
         private System.Windows.Forms.DataGridView DataGridView_Tarjetas_Nac_Disponibles;
         private System.Windows.Forms.DataGridView DataGridView_Tarjeta_De_Cliente_Int;
         private System.Windows.Forms.DataGridView DataGridView_Tarjetas_Int_Disponibles;
+        private System.Windows.Forms.TextBox TextBox_Monto;
+        private System.Windows.Forms.Label label1;
     }
 }

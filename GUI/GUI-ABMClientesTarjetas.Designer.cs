@@ -108,9 +108,11 @@ namespace GUI
             this.DateTimePicker_Cliente.CustomFormat = "yyyy/MM/dd";
             this.DateTimePicker_Cliente.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.DateTimePicker_Cliente.Location = new System.Drawing.Point(125, 83);
+            this.DateTimePicker_Cliente.MaxDate = new System.DateTime(2021, 10, 5, 0, 0, 0, 0);
             this.DateTimePicker_Cliente.Name = "DateTimePicker_Cliente";
             this.DateTimePicker_Cliente.Size = new System.Drawing.Size(90, 20);
             this.DateTimePicker_Cliente.TabIndex = 6;
+            this.DateTimePicker_Cliente.Value = new System.DateTime(2021, 10, 5, 0, 0, 0, 0);
             // 
             // label3
             // 
@@ -132,7 +134,7 @@ namespace GUI
             // 
             // TextBox_Numero
             // 
-            this.TextBox_Numero.Location = new System.Drawing.Point(643, 45);
+            this.TextBox_Numero.Location = new System.Drawing.Point(643, 47);
             this.TextBox_Numero.Multiline = true;
             this.TextBox_Numero.Name = "TextBox_Numero";
             this.TextBox_Numero.Size = new System.Drawing.Size(90, 21);
@@ -141,7 +143,7 @@ namespace GUI
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(510, 65);
+            this.label5.Location = new System.Drawing.Point(510, 68);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(83, 13);
             this.label5.TabIndex = 14;
@@ -151,7 +153,8 @@ namespace GUI
             // 
             this.DateTimePicker_Tarjeta.CustomFormat = "yyyy/MM/dd";
             this.DateTimePicker_Tarjeta.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.DateTimePicker_Tarjeta.Location = new System.Drawing.Point(513, 81);
+            this.DateTimePicker_Tarjeta.Location = new System.Drawing.Point(513, 84);
+            this.DateTimePicker_Tarjeta.MinDate = new System.DateTime(2021, 10, 5, 0, 0, 0, 0);
             this.DateTimePicker_Tarjeta.Name = "DateTimePicker_Tarjeta";
             this.DateTimePicker_Tarjeta.Size = new System.Drawing.Size(90, 20);
             this.DateTimePicker_Tarjeta.TabIndex = 13;
@@ -167,7 +170,7 @@ namespace GUI
             // ComboBox_Provincia
             // 
             this.ComboBox_Provincia.FormattingEnabled = true;
-            this.ComboBox_Provincia.Location = new System.Drawing.Point(895, 85);
+            this.ComboBox_Provincia.Location = new System.Drawing.Point(895, 86);
             this.ComboBox_Provincia.Name = "ComboBox_Provincia";
             this.ComboBox_Provincia.Size = new System.Drawing.Size(90, 21);
             this.ComboBox_Provincia.TabIndex = 34;
@@ -183,7 +186,7 @@ namespace GUI
             // 
             // TextBox_Monto
             // 
-            this.TextBox_Monto.Location = new System.Drawing.Point(643, 82);
+            this.TextBox_Monto.Location = new System.Drawing.Point(643, 84);
             this.TextBox_Monto.Multiline = true;
             this.TextBox_Monto.Name = "TextBox_Monto";
             this.TextBox_Monto.ReadOnly = true;
@@ -233,7 +236,7 @@ namespace GUI
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(640, 29);
+            this.label6.Location = new System.Drawing.Point(640, 31);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(44, 13);
             this.label6.TabIndex = 43;
@@ -242,7 +245,7 @@ namespace GUI
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(640, 66);
+            this.label7.Location = new System.Drawing.Point(640, 68);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(37, 13);
             this.label7.TabIndex = 44;
@@ -269,7 +272,7 @@ namespace GUI
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(892, 69);
+            this.label10.Location = new System.Drawing.Point(892, 70);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(51, 13);
             this.label10.TabIndex = 47;
@@ -366,7 +369,7 @@ namespace GUI
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(892, 27);
+            this.label12.Location = new System.Drawing.Point(892, 28);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(40, 13);
             this.label12.TabIndex = 53;
@@ -375,7 +378,7 @@ namespace GUI
             // ComboBox_Estado
             // 
             this.ComboBox_Estado.FormattingEnabled = true;
-            this.ComboBox_Estado.Location = new System.Drawing.Point(895, 43);
+            this.ComboBox_Estado.Location = new System.Drawing.Point(895, 44);
             this.ComboBox_Estado.Name = "ComboBox_Estado";
             this.ComboBox_Estado.Size = new System.Drawing.Size(90, 21);
             this.ComboBox_Estado.TabIndex = 52;
@@ -395,7 +398,7 @@ namespace GUI
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(511, 29);
+            this.label13.Location = new System.Drawing.Point(511, 32);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(40, 13);
             this.label13.TabIndex = 56;
@@ -404,7 +407,7 @@ namespace GUI
             // TextBox_Cod_tarjeta
             // 
             this.TextBox_Cod_tarjeta.Enabled = false;
-            this.TextBox_Cod_tarjeta.Location = new System.Drawing.Point(514, 45);
+            this.TextBox_Cod_tarjeta.Location = new System.Drawing.Point(514, 48);
             this.TextBox_Cod_tarjeta.Multiline = true;
             this.TextBox_Cod_tarjeta.Name = "TextBox_Cod_tarjeta";
             this.TextBox_Cod_tarjeta.Size = new System.Drawing.Size(90, 21);
