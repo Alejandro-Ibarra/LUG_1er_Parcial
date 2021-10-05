@@ -93,28 +93,28 @@ namespace Mapper
                             oBECliente.TarjetaInt = ListaTarjetasInt;
 
 
-                            DataSet oDataSetTarjetaNac;
-                            string ConsultaSqlTarjetaNac = " Select Tarjetas.Codigo,Numero,Vencimiento,PorcentajeDescuento,Estado,Rubro,TipoNacProv,Provincia from Tarjetas, Cliente_Tarjeta" +
-                                " where Cliente_Tarjeta.CoDTarjeta = Tarjetas.Codigo and Cliente_Tarjeta.CodCliente = " + oBECliente.Codigo + "and Tarjetas.Provincia IS NOT NULL";
-                            oDataSetTarjetaNac = oConexion.LeerDataSet(ConsultaSqlTarjetaNac);
-                            if (oDataSetTarjetaNac.Tables[0].Rows.Count > 0)
+                        }
+                        DataSet oDataSetTarjetaNac;
+                        string ConsultaSqlTarjetaNac = " Select Tarjetas.Codigo,Numero,Vencimiento,PorcentajeDescuento,Estado,Rubro,TipoNacProv,Provincia from Tarjetas, Cliente_Tarjeta" +
+                            " where Cliente_Tarjeta.CoDTarjeta = Tarjetas.Codigo and Cliente_Tarjeta.CodCliente = " + oBECliente.Codigo + "and Tarjetas.Provincia IS NOT NULL";
+                        oDataSetTarjetaNac = oConexion.LeerDataSet(ConsultaSqlTarjetaNac);
+                        if (oDataSetTarjetaNac.Tables[0].Rows.Count > 0)
+                        {
+                            List<BETarjetaNacional> ListaTarjetasNac = new List<BETarjetaNacional>();
+                            foreach (DataRow fila2 in oDataSetTarjetaNac.Tables[0].Rows)
                             {
-                                List<BETarjetaNacional> ListaTarjetasNac = new List<BETarjetaNacional>();
-                                foreach (DataRow fila2 in oDataSetTarjetaNac.Tables[0].Rows)
-                                {
-                                    BETarjetaNacional oBETarjetaNac = new BETarjetaNacional();
-                                    oBETarjetaNac.Codigo = Convert.ToInt32(fila2[0]);
-                                    oBETarjetaNac.Numero = Convert.ToInt32(fila2[1]);
-                                    oBETarjetaNac.Vencimiento = Convert.ToDateTime(fila2[2]);
-                                    oBETarjetaNac.Descuento = Convert.ToInt32(fila2[3]);
-                                    oBETarjetaNac.Estado = fila2[4].ToString();
-                                    oBETarjetaNac.Rubro = fila2[5].ToString();
-                                    oBETarjetaNac.Pais = fila2[6].ToString();
-                                    oBETarjetaNac.Provincia = fila2[7].ToString();
-                                    ListaTarjetasNac.Add(oBETarjetaNac);
-                                }
-                                oBECliente.TarjetaNac = ListaTarjetasNac;
+                                BETarjetaNacional oBETarjetaNac = new BETarjetaNacional();
+                                oBETarjetaNac.Codigo = Convert.ToInt32(fila2[0]);
+                                oBETarjetaNac.Numero = Convert.ToInt32(fila2[1]);
+                                oBETarjetaNac.Vencimiento = Convert.ToDateTime(fila2[2]);
+                                oBETarjetaNac.Descuento = Convert.ToInt32(fila2[3]);
+                                oBETarjetaNac.Estado = fila2[4].ToString();
+                                oBETarjetaNac.Rubro = fila2[5].ToString();
+                                oBETarjetaNac.Pais = fila2[6].ToString();
+                                oBETarjetaNac.Provincia = fila2[7].ToString();
+                                ListaTarjetasNac.Add(oBETarjetaNac);
                             }
+                            oBECliente.TarjetaNac = ListaTarjetasNac;
                         }
                     }
                 }
@@ -163,30 +163,28 @@ namespace Mapper
                                 ListaTarjetasInt.Add(oBEtarjetaInt);
                             }
                             oBECliente.TarjetaInt = ListaTarjetasInt;
-
-
-                            DataSet oDataSetTarjetaNac;
-                            string ConsultaSqlTarjetaNac = " Select Tarjetas.Codigo,Numero,Vencimiento,PorcentajeDescuento,Estado,Rubro,TipoNacProv,Provincia from Tarjetas, Cliente_Tarjeta" +
-                                " where Cliente_Tarjeta.CoDTarjeta = Tarjetas.Codigo and Cliente_Tarjeta.CodCliente = " + oBECliente.Codigo + "and Tarjetas.Provincia IS NOT NULL";
-                            oDataSetTarjetaNac = oConexion.LeerDataSet(ConsultaSqlTarjetaNac);
-                            if (oDataSetTarjetaNac.Tables[0].Rows.Count > 0)
+                        }
+                        DataSet oDataSetTarjetaNac;
+                        string ConsultaSqlTarjetaNac = " Select Tarjetas.Codigo,Numero,Vencimiento,PorcentajeDescuento,Estado,Rubro,TipoNacProv,Provincia from Tarjetas, Cliente_Tarjeta" +
+                            " where Cliente_Tarjeta.CoDTarjeta = Tarjetas.Codigo and Cliente_Tarjeta.CodCliente = " + oBECliente.Codigo + "and Tarjetas.Provincia IS NOT NULL";
+                        oDataSetTarjetaNac = oConexion.LeerDataSet(ConsultaSqlTarjetaNac);
+                        if (oDataSetTarjetaNac.Tables[0].Rows.Count > 0)
+                        {
+                            List<BETarjetaNacional> ListaTarjetasNac = new List<BETarjetaNacional>();
+                            foreach (DataRow fila2 in oDataSetTarjetaNac.Tables[0].Rows)
                             {
-                                List<BETarjetaNacional> ListaTarjetasNac = new List<BETarjetaNacional>();
-                                foreach (DataRow fila2 in oDataSetTarjetaNac.Tables[0].Rows)
-                                {
-                                    BETarjetaNacional oBETarjetaNac = new BETarjetaNacional();
-                                    oBETarjetaNac.Codigo = Convert.ToInt32(fila2[0]);
-                                    oBETarjetaNac.Numero = Convert.ToInt32(fila2[1]);
-                                    oBETarjetaNac.Vencimiento = Convert.ToDateTime(fila2[2]);
-                                    oBETarjetaNac.Descuento = Convert.ToInt32(fila2[3]);
-                                    oBETarjetaNac.Estado = fila2[4].ToString();
-                                    oBETarjetaNac.Rubro = fila2[5].ToString();
-                                    oBETarjetaNac.Pais = fila2[6].ToString();
-                                    oBETarjetaNac.Provincia = fila2[7].ToString();
-                                    ListaTarjetasNac.Add(oBETarjetaNac);
-                                }
-                                oBECliente.TarjetaNac = ListaTarjetasNac;
+                                BETarjetaNacional oBETarjetaNac = new BETarjetaNacional();
+                                oBETarjetaNac.Codigo = Convert.ToInt32(fila2[0]);
+                                oBETarjetaNac.Numero = Convert.ToInt32(fila2[1]);
+                                oBETarjetaNac.Vencimiento = Convert.ToDateTime(fila2[2]);
+                                oBETarjetaNac.Descuento = Convert.ToInt32(fila2[3]);
+                                oBETarjetaNac.Estado = fila2[4].ToString();
+                                oBETarjetaNac.Rubro = fila2[5].ToString();
+                                oBETarjetaNac.Pais = fila2[6].ToString();
+                                oBETarjetaNac.Provincia = fila2[7].ToString();
+                                ListaTarjetasNac.Add(oBETarjetaNac);
                             }
+                            oBECliente.TarjetaNac = ListaTarjetasNac;
                         }
                         ListaClientes.Add(oBECliente);
                     }

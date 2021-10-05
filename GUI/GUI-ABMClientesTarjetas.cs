@@ -104,13 +104,13 @@ namespace GUI
                 if (ComboBox_Pais.Text == "Argentina")
                 {
                     oBETarjetaNac.Codigo = 0;
-                    oBETarjetaNac.Estado = "Sin Saldo";
+                    oBETarjetaNac.Estado = "null";
                     oBLTarjetaNac.Guardar(oBETarjetaNac);
                 }
                 else
                 {
                     oBETarjetaInt.Codigo = 0;
-                    oBETarjetaNac.Estado = "Sin Saldo";
+                    oBETarjetaNac.Estado = "null";
                     oBLTarjetaInt.Guardar(oBETarjetaInt);
                 }
                 Limpiar();

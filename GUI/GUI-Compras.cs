@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using BusinessEntity;
+using BussinesLogic;
 
 namespace GUI
 {
@@ -15,6 +17,93 @@ namespace GUI
         public GUI_Compras()
         {
             InitializeComponent();
+            oBLCliente = new BLCliente();
+            oBECliente = new BECliente();
+            oBETarjInt = new BETarjetaInternacional();
+            oBETarjNac = new BETarjetaNacional();
+            oBlTarjetaInt = new BLTarjetaInternacional();
+            oBLTarjetaNac = new BLTarjetaNacional();
+            CargarGrillaClientes();
+        }
+
+        BLCliente oBLCliente;
+        BLTarjetaInternacional oBlTarjetaInt;
+        BLTarjetaNacional oBLTarjetaNac;
+        BECliente oBECliente;
+        BETarjetaInternacional oBETarjInt;
+        BETarjetaNacional oBETarjNac;
+
+        void CargarGrillaClientes()
+        {
+            this.DataGridView_Clientes.DataSource = null;
+            this.DataGridView_Clientes.Rows.Clear();
+            this.DataGridView_Clientes.DataSource = oBLCliente.ListarTodo();
+            this.DataGridView_Clientes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
+        }
+
+        private void Button_Realizar_Compra_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private List<BETarjetaInternacional> DevolverTarjintCliente(BECliente oAuXBeCliente)
+        {
+            List<BETarjetaInternacional> ListTarjInt = new List<BETarjetaInternacional>();
+
+            if (oAuXBeCliente.TarjetaInt != null)
+            {
+                foreach (BETarjetaInternacional TN in oAuXBeCliente.TarjetaInt)
+                {
+                    ListTarjInt.Add(TN);
+                }
+            }
+            return ListTarjInt;
+        }
+
+        private List<BETarjetaNacional> DevolverTarjNacCliente(BECliente oAuXBeCliente)
+        {
+            List<BETarjetaNacional> ListTarjNac = new List<BETarjetaNacional>();
+
+            if (oAuXBeCliente.TarjetaNac != null)
+            {
+                foreach (BETarjetaNacional TN in oAuXBeCliente.TarjetaNac)
+                {
+                    ListTarjNac.Add(TN);
+                }
+            }
+            return ListTarjNac;
+        }
+
+        private void AsignarTarjetaATextBox(BECliente ClieAux)
+        {
+            BECliente ClieAux2 = oBLCliente.ListarObjeto(ClieAux);
+            if (ClieAux2.TarjetaInt != null)
+            {
+                foreach (BETarjetaInternacional TarjInt in ClieAux2.TarjetaInt)
+                {
+                    if (TarjInt.Estado == "Alta")
+                    {
+                        TextBox_Numero_Tarjeta.Text = TarjInt.Numero.ToString();
+                        TextBox_Saldo_Tarjeta.Text = TarjInt.Saldo.ToString();
+                    }
+                }
+            }
+            if (ClieAux2.TarjetaNac != null)
+            {
+                foreach (BETarjetaNacional TarjNac in ClieAux2.TarjetaNac)
+                {
+                    if (TarjNac.Estado != "Alta")
+                    {
+
+                    }
+                }
+            }
+        }
+
+        private void DataGridView_Clientes_MouseClick(object sender, MouseEventArgs e)
+        {
+            oBECliente = (BECliente)DataGridView_Clientes.CurrentRow.DataBoundItem;
+            AsignarTarjetaATextBox(oBECliente);
         }
     }
 }
