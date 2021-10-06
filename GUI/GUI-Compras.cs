@@ -21,17 +21,21 @@ namespace GUI
             oBECliente = new BECliente();
             oBETarjInt = new BETarjetaInternacional();
             oBETarjNac = new BETarjetaNacional();
-            oBlTarjetaInt = new BLTarjetaInternacional();
+            oBLTarjetaInt = new BLTarjetaInternacional();
             oBLTarjetaNac = new BLTarjetaNacional();
+            oBLDesc = new BLDescuentosCalculados();
+            oBEDesc = new BEDescuentoCalculado();
             CargarGrillaClientes();
         }
 
         BLCliente oBLCliente;
-        BLTarjetaInternacional oBlTarjetaInt;
+        BLTarjetaInternacional oBLTarjetaInt;
         BLTarjetaNacional oBLTarjetaNac;
         BECliente oBECliente;
         BETarjetaInternacional oBETarjInt;
         BETarjetaNacional oBETarjNac;
+        BLDescuentosCalculados oBLDesc;
+        BEDescuentoCalculado oBEDesc;
 
         void CargarGrillaClientes()
         {
@@ -43,62 +47,106 @@ namespace GUI
 
         private void Button_Realizar_Compra_Click(object sender, EventArgs e)
         {
-            
-        }
+            oBETarjInt = null;
+            oBETarjNac = null;
+            oBECliente = (BECliente)DataGridView_Clientes.CurrentRow.DataBoundItem;
+            BETarjeta oBEtarjeta = TarjetaDeAlta(oBECliente);
+            List<BETarjetaInternacional> ListaTarjetasInt = new List<BETarjetaInternacional>();
+            List<BETarjetaNacional> ListaTarjetasNac = new List<BETarjetaNacional>();
+            ListaTarjetasInt = oBLTarjetaInt.ListarTodo();
 
-        private List<BETarjeta> DevolverTarCliente(BECliente oAuXBeCliente)
-        {
-            List<BETarjeta> ListTarjInt = new List<BETarjeta>();
+            int MontoCompra = Convert.ToInt32(TextBox_Monto_compra.Text);
+            int MontoTarjeta = Convert.ToInt32(TextBox_Saldo_Tarjeta.Text);
 
-            if (oAuXBeCliente.Tarjeta != null)
+            if (oBEtarjeta != null)
             {
-                foreach (BETarjetaInternacional TN in oAuXBeCliente.Tarjeta)
+                foreach (BETarjetaInternacional oBETarjIntAux in ListaTarjetasInt)
                 {
-                    ListTarjInt.Add(TN);
+                    if (oBEtarjeta.Codigo == oBETarjIntAux.Codigo)
+                    {
+                        oBETarjInt = oBETarjIntAux;
+                    }
+                }
+                foreach (BETarjetaNacional oBETarjNacAux in ListaTarjetasNac)
+                {
+                    if (oBEtarjeta.Codigo == oBETarjNacAux.Codigo)
+                    {
+                        oBETarjNac = oBETarjNacAux;
+                    }
+                }
+                if (MontoCompra < MontoTarjeta)
+                {
+                    if (oBETarjInt != null)
+                    {
+                        oBEDesc.DescuentoOtorgado = oBLTarjetaInt.ObtenerDescuento(MontoCompra);
+                        oBEDesc.NumeroTarjeta = oBETarjInt.Numero;
+                        oBEDesc.Tipo = "Internacional";
+                        oBLDesc.Guardar(oBEDesc);
+
+                        oBETarjInt.Saldo = oBETarjInt.Saldo - MontoCompra;
+                        if (oBETarjInt.Saldo == 0)
+                        {
+                            oBETarjInt.Estado = "Sin Saldo";
+                        }
+                        oBLTarjetaInt.Guardar(oBETarjInt);
+                    }
+                    else if (oBETarjNac != null)
+                    {
+                        oBEDesc.DescuentoOtorgado = oBLTarjetaNac.ObtenerDescuento(MontoCompra);
+                        oBEDesc.NumeroTarjeta = oBETarjInt.Numero;
+                        oBEDesc.Tipo = "Internacional";
+                        oBLDesc.Guardar(oBEDesc);
+                        oBETarjNac.Saldo = oBETarjNac.Saldo - MontoCompra;
+                        if (oBETarjNac.Saldo == 0)
+                        {
+                            oBETarjNac.Estado = "Sin Saldo";
+                        }
+                        oBLTarjetaNac.Guardar(oBETarjNac);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("No hay saldo suficiente");
                 }
             }
-            return ListTarjInt;
-        }
-        /*
-        private List<BETarjetaNacional> DevolverTarjNacCliente(BECliente oAuXBeCliente)
-        {
-            List<BETarjetaNacional> ListTarjNac = new List<BETarjetaNacional>();
-
-            if (oAuXBeCliente.TarjetaNac != null)
+            else
             {
-                foreach (BETarjetaNacional TN in oAuXBeCliente.TarjetaNac)
-                {
-                    ListTarjNac.Add(TN);
-                }
+                MessageBox.Show("El cliente no tiene tarjeta dada de alta");
             }
-            return ListTarjNac;
         }
-        */
+
         private void AsignarTarjetaATextBox(BECliente ClieAux)
         {
             BECliente ClieAux2 = oBLCliente.ListarObjeto(ClieAux);
-            if (ClieAux2.Tarjeta != null)
+            BETarjeta oBETarjAux = TarjetaDeAlta(ClieAux2);
+            if (oBETarjAux != null)
             {
-                foreach (BETarjeta Tarj in ClieAux2.Tarjeta)
+                TextBox_Numero_Tarjeta.Text = oBETarjAux.Numero.ToString();
+                TextBox_Saldo_Tarjeta.Text = oBETarjAux.Saldo.ToString();
+            }
+            else
+            {
+                TextBox_Numero_Tarjeta.Text = "NO";
+                TextBox_Saldo_Tarjeta.Text = "NO";
+            }
+            
+          
+        }
+
+        private BETarjeta TarjetaDeAlta(BECliente ClieAux)
+        {
+            BETarjeta oBETarjAux = null;
+            if (ClieAux.Tarjeta != null)
+            {
+                foreach (BETarjeta Tarj in ClieAux.Tarjeta)
                 {
                     if (Tarj.Estado == "Alta")
                     {
-                        TextBox_Numero_Tarjeta.Text = Tarj.Numero.ToString();
-                        TextBox_Saldo_Tarjeta.Text = Tarj.Saldo.ToString();
+                        oBETarjAux = Tarj;
                     }
                 }
             }
-            /*
-            if (ClieAux2.TarjetaNac != null)
-            {
-                foreach (BETarjetaNacional TarjNac in ClieAux2.TarjetaNac)
-                {
-                    if (TarjNac.Estado != "Alta")
-                    {
-
-                    }
-                }
-            }*/
+            return oBETarjAux;
         }
 
         private void DataGridView_Clientes_MouseClick(object sender, MouseEventArgs e)

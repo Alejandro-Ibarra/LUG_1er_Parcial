@@ -36,7 +36,7 @@ namespace Mapper
             List<BETarjetaInternacional> ListaTarjetas = new List<BETarjetaInternacional>();
             DataSet oDataSetTarjetas;
             oConexion = new Conexion();
-            oDataSetTarjetas = oConexion.LeerDataSet("SELECT Codigo,Numero,Vencimiento,Estado,Rubro,TipoNacProv,Provincia FROM Tarjetas a full outer join Cliente_Tarjeta b on a.Codigo = b.CodTarjeta where a.Codigo IS NULL or b.CodTarjeta IS NULL and a.Provincia IS NULL;");
+            oDataSetTarjetas = oConexion.LeerDataSet("SELECT Codigo,Numero,Vencimiento,Estado,Rubro,TipoNacProv,Provincia,Saldo FROM Tarjetas a full outer join Cliente_Tarjeta b on a.Codigo = b.CodTarjeta where a.Codigo IS NULL or b.CodTarjeta IS NULL and a.Provincia IS NULL;");
             if (oDataSetTarjetas.Tables[0].Rows.Count > 0)
             {
                 foreach (DataRow fila in oDataSetTarjetas.Tables[0].Rows)
@@ -48,6 +48,11 @@ namespace Mapper
                     oBETarjetaInt2.Estado = fila[3].ToString();
                     oBETarjetaInt2.Rubro = fila[4].ToString();
                     oBETarjetaInt2.Pais = fila[5].ToString();
+                    if (fila[7].ToString() != "")
+                    {
+                        oBETarjetaInt2.Saldo = Convert.ToInt32(fila[7]);
+                    }
+                    
                     ListaTarjetas.Add(oBETarjetaInt2);
                 }
             }
@@ -57,7 +62,7 @@ namespace Mapper
         public BETarjetaInternacional ListarObjeto(BETarjetaInternacional oBETarjeta)
         {
             oConexion = new Conexion();
-            string Consulta = "SELECT Codigo,Numero,Vencimiento,Estado,Rubro,TipoNacProv FROM Tarjetas where Codigo =" + oBETarjeta.Codigo;
+            string Consulta = "SELECT Codigo,Numero,Vencimiento,Estado,Rubro,TipoNacProv,Saldo FROM Tarjetas where Codigo =" + oBETarjeta.Codigo;
             DataSet oDataSet = oConexion.LeerDataSet(Consulta);
 
             if (oDataSet.Tables[0].Rows.Count > 0)
@@ -72,6 +77,11 @@ namespace Mapper
                     oBETarjInt.Estado = fila[3].ToString();
                     oBETarjInt.Rubro = fila[4].ToString();
                     oBETarjInt.Pais = fila[5].ToString();
+                    if (fila[7].ToString() != "")
+                    {
+                        oBETarjInt.Saldo = Convert.ToInt32(fila[7]);
+                    }
+                    
                 }
                 return oBETarjInt;
             }
@@ -85,7 +95,7 @@ namespace Mapper
             List<BETarjetaInternacional> ListaTarjetas = new List<BETarjetaInternacional>();
             DataSet oDataSetTarjetas;
             oConexion = new Conexion();
-            oDataSetTarjetas = oConexion.LeerDataSet("SELECT Codigo,Numero,Vencimiento,Estado,Rubro,TipoNacProv,Provincia FROM Tarjetas");
+            oDataSetTarjetas = oConexion.LeerDataSet("SELECT Codigo,Numero,Vencimiento,Estado,Rubro,TipoNacProv,Provincia,Saldo FROM Tarjetas");
             if (oDataSetTarjetas.Tables[0].Rows.Count > 0)
             {
                 foreach (DataRow fila in oDataSetTarjetas.Tables[0].Rows)
@@ -99,6 +109,12 @@ namespace Mapper
                         oBETarjetaInt2.Estado = fila[3].ToString();
                         oBETarjetaInt2.Rubro = fila[4].ToString();
                         oBETarjetaInt2.Pais = fila[5].ToString();
+                        if (fila[7].ToString() != "")
+                        {
+                            oBETarjetaInt2.Saldo = Convert.ToInt32(fila[7]);
+                        }
+                        
+             
                         ListaTarjetas.Add(oBETarjetaInt2);
                     }
                     

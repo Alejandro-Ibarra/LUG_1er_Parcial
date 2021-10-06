@@ -20,7 +20,7 @@ namespace Mapper
             if (oBEDesc.Codigo == 0)
             {
                 ConsultaSql = "Insert into DescuentoOtorgado (NumeroTarjeta,Tipo,MontoDescuento) " +
-                    "values('" + oBEDesc.NumeroTarjeta + "', " + oBEDesc.Tipo + ",'" + oBEDesc.DescuentoOtorgado + "' ) ";
+                    "values('" + oBEDesc.NumeroTarjeta + "', '" + oBEDesc.Tipo + "','" + oBEDesc.DescuentoOtorgado + "' ) ";
             }
             else
             {

@@ -10,6 +10,6 @@ namespace BusinessEntity
     {
         public int NumeroTarjeta { get; set; }
         public string Tipo { get; set; }
-        public int DescuentoOtorgado { get; set; }
+        public double DescuentoOtorgado { get; set; }
     }
 }

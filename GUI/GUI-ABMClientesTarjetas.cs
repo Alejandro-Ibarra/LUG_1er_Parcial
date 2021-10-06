@@ -43,7 +43,7 @@ namespace GUI
 
         private void GUI_ABMClientesTarjetas_Load(object sender, EventArgs e)
         {
-            //CargarComboBoxEstadoTarj();
+            
             CargarComboBoxPaises();
             CargarComboBoxProvincias();
             CargarComboBoxRubro();

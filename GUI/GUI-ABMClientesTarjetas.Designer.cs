@@ -108,7 +108,6 @@ namespace GUI
             this.DateTimePicker_Cliente.CustomFormat = "yyyy/MM/dd";
             this.DateTimePicker_Cliente.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.DateTimePicker_Cliente.Location = new System.Drawing.Point(125, 83);
-            this.DateTimePicker_Cliente.MaxDate = new System.DateTime(2021, 10, 5, 0, 0, 0, 0);
             this.DateTimePicker_Cliente.Name = "DateTimePicker_Cliente";
             this.DateTimePicker_Cliente.Size = new System.Drawing.Size(90, 20);
             this.DateTimePicker_Cliente.TabIndex = 6;
@@ -154,7 +153,6 @@ namespace GUI
             this.DateTimePicker_Tarjeta.CustomFormat = "yyyy/MM/dd";
             this.DateTimePicker_Tarjeta.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.DateTimePicker_Tarjeta.Location = new System.Drawing.Point(513, 84);
-            this.DateTimePicker_Tarjeta.MinDate = new System.DateTime(2021, 10, 5, 0, 0, 0, 0);
             this.DateTimePicker_Tarjeta.Name = "DateTimePicker_Tarjeta";
             this.DateTimePicker_Tarjeta.Size = new System.Drawing.Size(90, 20);
             this.DateTimePicker_Tarjeta.TabIndex = 13;

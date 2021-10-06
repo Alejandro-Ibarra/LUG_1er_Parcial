@@ -43,9 +43,9 @@ namespace BussinesLogic
             return oMTarjetaInternacional.ListarDisponible();
         }
 
-        public override int ObtenerDescuento()
+        public override double ObtenerDescuento(double Monto)
         {
-            throw new NotImplementedException();
+            return Monto * 0.70;
         }
     }
 }
