@@ -26,6 +26,8 @@ namespace GUI
             oBETarjetaNac = new BETarjetaNacional();
             oBLPaises = new BLPaises();
             oBLProvincias = new BLProvincias();
+            oBLDesc = new BLDescuentosCalculados();
+            oBEDesc = new BEDescuentoCalculado();
 
             this.DataGrid_ABM_Cliente.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             this.DataGrid_ABM_Tarjeta_Nac.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -40,6 +42,8 @@ namespace GUI
         BETarjetaNacional oBETarjetaNac;
         BLPaises oBLPaises;
         BLProvincias oBLProvincias;
+        BLDescuentosCalculados oBLDesc;
+        BEDescuentoCalculado oBEDesc;
 
         private void GUI_ABMClientesTarjetas_Load(object sender, EventArgs e)
         {
@@ -341,6 +345,85 @@ namespace GUI
             }
         }
 
+        private void CalcularTarjetaMayorDescuento()
+        {
+            List<BEDescuentoCalculado> ListaDescuentos = oBLDesc.ListarTodo();
+            List<BETarjetaNacional> ListaTarjetasNac = oBLTarjetaNac.ListarTodo();
+            List<BETarjetaInternacional> ListaTarjetasInt = oBLTarjetaInt.ListarTodo();
+            double aux1 = 0;
+            double aux = 0;
+            BETarjeta oBETarjAux = new BETarjeta();
+            if (ListaDescuentos != null)
+            {
+                foreach (BETarjetaNacional oBETarjNacAux in ListaTarjetasNac)
+                {
+                    foreach (BEDescuentoCalculado oBEDesAux in ListaDescuentos)
+                     {
+                        if (oBEDesAux.NumeroTarjeta == oBETarjNacAux.Numero)
+                        {
+                            aux1 += oBEDesAux.DescuentoOtorgado;
+                            if (aux1 > aux)
+                            {
+                                oBETarjAux = oBETarjNacAux;
+                                aux = aux1;
+                            }
+                        }
+                    }
+                }
+            }
+            if (ListaDescuentos != null)
+            {
+                foreach (BETarjetaInternacional oBETarjIntAux in ListaTarjetasInt)
+                {
+                    foreach (BEDescuentoCalculado oBEDesAux in ListaDescuentos)
+                    {
+                        if (oBEDesAux.NumeroTarjeta == oBETarjIntAux.Numero)
+                        {
+                            aux1 += oBEDesAux.DescuentoOtorgado;
+                            if (aux1 > aux)
+                            {
+                                oBETarjAux = oBETarjIntAux;
+                                aux = aux1;
+                            }
+                        }
+                    }
+                }
+            }
+
+            TextBox_Tarj_Mayor_Desc.Text = "La tarjeta con mayor descuento es " + oBETarjAux.Numero + " con el descuento de "+ aux +".";
+
+        }
+
+        private void TarjetaMenorMonto()
+        {
+            BETarjeta oBETarjAux = new BETarjeta();
+            oBETarjAux.Saldo = 999999;
+            List<BETarjetaNacional> ListaTarjetasNac = oBLTarjetaNac.ListarTodo();
+            List<BETarjetaInternacional> ListaTarjetasInt = oBLTarjetaInt.ListarTodo();
+            if (ListaTarjetasNac != null)
+            {
+                foreach (BETarjetaNacional oBETarjNacAux in ListaTarjetasNac)
+                {
+                    if (oBETarjNacAux.Saldo < oBETarjAux.Saldo && oBETarjNacAux.Saldo != 0)
+                    {
+                        oBETarjAux = oBETarjNacAux;
+                    }
+                }
+            }
+            if (ListaTarjetasInt != null)
+            {
+                foreach (BETarjetaInternacional oBETarjIntAux in ListaTarjetasInt)
+                {
+                    if (oBETarjIntAux.Saldo < oBETarjAux.Saldo && oBETarjIntAux.Saldo != 0)
+                    {
+                        oBETarjAux = oBETarjIntAux;
+                    }
+                }
+            }
+            TextBox_Tarj_Menor_Imp.Text = "La tarjeta de menor importe es " + oBETarjAux.Numero + " con un saldo de "+ oBETarjAux.Saldo +".";
+        }
+
+
         private void HabilitarComboProvincia()
         {
             if (ComboBox_Pais.SelectedItem.ToString() == "Argentina")
@@ -385,6 +468,16 @@ namespace GUI
             DataGrid_ABM_Tarjeta_Nac.ClearSelection();
             oBETarjetaInt = (BETarjetaInternacional)this.DataGrid_ABM_Tarjeta_Int.CurrentRow.DataBoundItem;
             AsignarTarjetaAControles(oBETarjetaInt);
+        }
+
+        private void ButtonMenorSaldo_Click(object sender, EventArgs e)
+        {
+            TarjetaMenorMonto();
+        }
+
+        private void Button_Mayores_Descuentos_Click(object sender, EventArgs e)
+        {
+            CalcularTarjetaMayorDescuento();
         }
     }
 }

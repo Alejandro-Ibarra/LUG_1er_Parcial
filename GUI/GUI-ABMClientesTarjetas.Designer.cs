@@ -66,6 +66,10 @@ namespace GUI
             this.TextBox_Cod_tarjeta = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
+            this.ButtonMenorSaldo = new System.Windows.Forms.Button();
+            this.Button_Mayores_Descuentos = new System.Windows.Forms.Button();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DataGrid_ABM_Cliente)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataGrid_ABM_Tarjeta_Nac)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DataGrid_ABM_Tarjeta_Int)).BeginInit();
@@ -412,11 +416,53 @@ namespace GUI
             this.label14.TabIndex = 58;
             this.label14.Text = "Tarjetas Internacionales";
             // 
+            // ButtonMenorSaldo
+            // 
+            this.ButtonMenorSaldo.Location = new System.Drawing.Point(432, 442);
+            this.ButtonMenorSaldo.Name = "ButtonMenorSaldo";
+            this.ButtonMenorSaldo.Size = new System.Drawing.Size(75, 23);
+            this.ButtonMenorSaldo.TabIndex = 59;
+            this.ButtonMenorSaldo.Text = "Calcular";
+            this.ButtonMenorSaldo.UseVisualStyleBackColor = true;
+            this.ButtonMenorSaldo.Click += new System.EventHandler(this.ButtonMenorSaldo_Click);
+            // 
+            // Button_Mayores_Descuentos
+            // 
+            this.Button_Mayores_Descuentos.Location = new System.Drawing.Point(431, 467);
+            this.Button_Mayores_Descuentos.Name = "Button_Mayores_Descuentos";
+            this.Button_Mayores_Descuentos.Size = new System.Drawing.Size(75, 23);
+            this.Button_Mayores_Descuentos.TabIndex = 60;
+            this.Button_Mayores_Descuentos.Text = "Calcular";
+            this.Button_Mayores_Descuentos.UseVisualStyleBackColor = true;
+            this.Button_Mayores_Descuentos.Click += new System.EventHandler(this.Button_Mayores_Descuentos_Click);
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(310, 447);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(102, 13);
+            this.label15.TabIndex = 61;
+            this.label15.Text = "Tarjeta menor Saldo";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(287, 472);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(125, 13);
+            this.label16.TabIndex = 62;
+            this.label16.Text = "Tarjeta Mayor descuento";
+            // 
             // GUI_ABMClientesTarjetas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1157, 506);
+            this.Controls.Add(this.label16);
+            this.Controls.Add(this.label15);
+            this.Controls.Add(this.Button_Mayores_Descuentos);
+            this.Controls.Add(this.ButtonMenorSaldo);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label13);
@@ -504,5 +550,9 @@ namespace GUI
         private System.Windows.Forms.TextBox TextBox_Cod_tarjeta;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Button ButtonMenorSaldo;
+        private System.Windows.Forms.Button Button_Mayores_Descuentos;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label16;
     }
 }
