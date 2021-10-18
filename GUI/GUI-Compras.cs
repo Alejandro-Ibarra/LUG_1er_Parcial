@@ -49,11 +49,11 @@ namespace GUI
         {
             oBETarjInt = null;
             oBETarjNac = null;
-            oBECliente = (BECliente)DataGridView_Clientes.CurrentRow.DataBoundItem;
+            BECliente oBEClienteAux = (BECliente)DataGridView_Clientes.CurrentRow.DataBoundItem;
+            oBECliente = oBLCliente.ListarObjeto(oBECliente);
             BETarjeta oBEtarjeta = TarjetaDeAlta(oBECliente);
-            List<BETarjetaInternacional> ListaTarjetasInt = new List<BETarjetaInternacional>();
-            List<BETarjetaNacional> ListaTarjetasNac = new List<BETarjetaNacional>();
-            ListaTarjetasInt = oBLTarjetaInt.ListarTodo();
+            List<BETarjetaInternacional> ListaTarjetasInt = oBLTarjetaInt.ListarTodo();
+            List<BETarjetaNacional> ListaTarjetasNac = oBLTarjetaNac.ListarTodo();
 
             int MontoCompra = Convert.ToInt32(TextBox_Monto_compra.Text);
             int MontoTarjeta = Convert.ToInt32(TextBox_Saldo_Tarjeta.Text);
@@ -74,7 +74,7 @@ namespace GUI
                         oBETarjNac = oBETarjNacAux;
                     }
                 }
-                if (MontoCompra < MontoTarjeta)
+                if (MontoCompra <= MontoTarjeta)
                 {
                     if (oBETarjInt != null)
                     {
@@ -93,8 +93,8 @@ namespace GUI
                     else if (oBETarjNac != null)
                     {
                         oBEDesc.DescuentoOtorgado = oBLTarjetaNac.ObtenerDescuento(MontoCompra);
-                        oBEDesc.NumeroTarjeta = oBETarjInt.Numero;
-                        oBEDesc.Tipo = "Internacional";
+                        oBEDesc.NumeroTarjeta = oBETarjNac.Numero;
+                        oBEDesc.Tipo = "Nacional";
                         oBLDesc.Guardar(oBEDesc);
                         oBETarjNac.Saldo = oBETarjNac.Saldo - MontoCompra;
                         if (oBETarjNac.Saldo == 0)
@@ -113,6 +113,7 @@ namespace GUI
             {
                 MessageBox.Show("El cliente no tiene tarjeta dada de alta");
             }
+            Limpiar();
         }
 
         private void AsignarTarjetaATextBox(BECliente ClieAux)
@@ -153,6 +154,18 @@ namespace GUI
         {
             oBECliente = (BECliente)DataGridView_Clientes.CurrentRow.DataBoundItem;
             AsignarTarjetaATextBox(oBECliente);
+        }
+
+        void Limpiar()
+        {
+            List<TextBox> ListTxtBox = new List<TextBox>();
+            foreach (Control ctrl in this.Controls)
+            {
+                if (ctrl is TextBox)
+                {
+                    ((TextBox)ctrl).Text = String.Empty;
+                }
+            }
         }
     }
 }

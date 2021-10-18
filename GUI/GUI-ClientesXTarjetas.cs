@@ -39,7 +39,7 @@ namespace GUI
 
         private void GUI_ClientesXTarjetas_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         void CargarGrillaCliente()
@@ -85,9 +85,10 @@ namespace GUI
         public List<BETarjetaNacional> ListaCliTarjNac(BECliente oBECliente)
         {
             List<BETarjetaNacional> ListaTarjNac = new List<BETarjetaNacional>();
-            if (oBECliente.Tarjeta != null)
+            BECliente oBEClienteAux = oBLCliente.ListarObjeto(oBECliente);
+            if (oBEClienteAux.Tarjeta != null)
             {
-                foreach (BETarjeta tarj in oBECliente.Tarjeta)
+                foreach (BETarjeta tarj in oBEClienteAux.Tarjeta)
                 {
                     if (tarj is BETarjetaNacional)
                     {
@@ -97,12 +98,14 @@ namespace GUI
             }
             return ListaTarjNac;
         }
+
         public List<BETarjetaInternacional> ListaCliTarjInt(BECliente oBECliente)
         {
             List<BETarjetaInternacional> ListaTarjInt = new List<BETarjetaInternacional>();
-            if (oBECliente.Tarjeta != null)
+            BECliente oBEClienteAux = oBLCliente.ListarObjeto(oBECliente);
+            if (oBEClienteAux.Tarjeta != null)
             {
-                foreach (BETarjeta tarj in oBECliente.Tarjeta)
+                foreach (BETarjeta tarj in oBEClienteAux.Tarjeta)
                 {
                     if (tarj is BETarjetaInternacional)
                     {
@@ -116,10 +119,9 @@ namespace GUI
         private bool VerificarEstadoTarjeta(BECliente ClieAux)
         {
             bool aux = true;
-            BECliente ClieAux2 = oBLCliente.ListarObjeto(ClieAux);
-            if (ClieAux2.Tarjeta != null)
+            if (ClieAux.Tarjeta != null)
             {
-                foreach (BETarjeta Tarj in ClieAux2.Tarjeta)
+                foreach (BETarjeta Tarj in ClieAux.Tarjeta)
                 {
                     if (Tarj.Estado == "Alta")
                     {
@@ -144,6 +146,7 @@ namespace GUI
         {
             oBECliente = (BECliente)DataGridView_Clientes.CurrentRow.DataBoundItem;
             BECliente oBEClienteAux = oBLCliente.ListarObjeto(oBECliente);
+            BECliente oBEClienteAux2 = new BECliente();
             if (TextBox_Monto.Text != "")
             {
                
@@ -152,24 +155,41 @@ namespace GUI
                     if (DataGridView_Tarjetas_Int_Disponibles.SelectedRows.Count > 0)
                     {
                         oBETarjInt = (BETarjetaInternacional)DataGridView_Tarjetas_Int_Disponibles.CurrentRow.DataBoundItem;
-                        oBETarjInt.Saldo = Convert.ToInt32(TextBox_Monto.Text);
-                        oBETarjInt.Estado = "Alta";
-                        oBlTarjetaInt.Guardar(oBETarjInt);
-                        oBLCliente.AgregarTarjeta_Int_Cliente(oBEClienteAux, oBETarjInt);
-                        CargarGrillaTarjDispInt();
-                        oBEClienteAux = oBLCliente.ListarObjeto(oBEClienteAux);
-                        CargarGrillaTarjCliInt(oBEClienteAux);
+                        if (oBETarjInt.Estado != "Baja")
+                        {
+                            oBETarjInt.Saldo = Convert.ToInt32(TextBox_Monto.Text);
+                            oBETarjInt.Estado = "Alta";
+                            oBlTarjetaInt.Guardar(oBETarjInt);
+                            oBLCliente.AgregarTarjeta_Int_Cliente(oBEClienteAux, oBETarjInt);
+                            CargarGrillaTarjDispInt();
+                            oBEClienteAux2 = oBLCliente.ListarObjeto(oBEClienteAux);
+                            CargarGrillaTarjCliInt(oBEClienteAux2);
+                        }
+                        else
+                        {
+                            MessageBox.Show("La tarjeta fue dada de baja, seleccione otra tarjeta");
+                        }
+                        
                     }
                     else if(DataGridView_Tarjetas_Nac_Disponibles.SelectedRows.Count > 0)
                     {
-                        oBETarjNac = (BETarjetaNacional)DataGridView_Tarjetas_Nac_Disponibles.CurrentRow.DataBoundItem;
-                        oBETarjNac.Saldo = Convert.ToInt32(TextBox_Monto.Text);
-                        oBETarjInt.Estado = "Alta";
-                        oBLTarjetaNac.Guardar(oBETarjNac);
-                        oBLCliente.AgregarTarjeta_Nac_Cliente(oBEClienteAux, oBETarjNac);
-                        CargarGrillaTarjDispNac();
-                        oBEClienteAux = oBLCliente.ListarObjeto(oBEClienteAux);
-                        CargarGrillaTarjCliNac(oBEClienteAux);
+                        if (oBETarjNac.Estado != "Baja")
+                        {
+                            oBETarjNac = (BETarjetaNacional)DataGridView_Tarjetas_Nac_Disponibles.CurrentRow.DataBoundItem;
+                            oBETarjNac.Saldo = Convert.ToInt32(TextBox_Monto.Text);
+                            oBETarjNac.Estado = "Alta";
+                            oBLTarjetaNac.Guardar(oBETarjNac);
+                            oBLCliente.AgregarTarjeta_Nac_Cliente(oBEClienteAux, oBETarjNac);
+                            CargarGrillaTarjDispNac();
+                            oBEClienteAux2 = oBLCliente.ListarObjeto(oBEClienteAux);
+                            CargarGrillaTarjCliNac(oBEClienteAux2);
+                        }
+                        else
+                        {
+                            MessageBox.Show("La tarjeta fue dada de baja, seleccione otra tarjeta");
+                        }
+
+
                     }
                 }
                 else
@@ -190,28 +210,34 @@ namespace GUI
         {
             oBECliente = (BECliente)DataGridView_Clientes.CurrentRow.DataBoundItem;
             BECliente oBEClienteAux = oBLCliente.ListarObjeto(oBECliente);
+            BECliente oBEClienteAux2 = new BECliente();
             if (DataGridView_Tarjeta_De_Cliente_Int.SelectedRows.Count > 0)
             {
                 oBETarjInt = (BETarjetaInternacional)DataGridView_Tarjeta_De_Cliente_Int.CurrentRow.DataBoundItem;
                 oBLCliente.QuitarTarjeta_Int_Cliente(oBEClienteAux, oBETarjInt);
                 oBETarjInt.Estado = "Baja";
+                oBETarjInt.Saldo = 0;
                 oBlTarjetaInt.Guardar(oBETarjInt);
-                oBEClienteAux = oBLCliente.ListarObjeto(oBEClienteAux);
+                oBEClienteAux2 = oBLCliente.ListarObjeto(oBEClienteAux);
             }
             else if (DataGridView_Tarjeta_De_Cliente_Nac.SelectedRows.Count > 0)
             {
                 oBETarjNac = (BETarjetaNacional)DataGridView_Tarjeta_De_Cliente_Nac.CurrentRow.DataBoundItem;
                 oBLCliente.QuitarTarjeta_Nac_Cliente(oBEClienteAux, oBETarjNac);
                 oBETarjNac.Estado = "Baja";
+                oBETarjNac.Saldo = 0;
                 oBLTarjetaNac.Guardar(oBETarjNac);
-                oBEClienteAux = oBLCliente.ListarObjeto(oBEClienteAux);
+                oBEClienteAux2 = oBLCliente.ListarObjeto(oBEClienteAux);
             }
             else
             {
                 MessageBox.Show("Seleccione una tarjeta a borrar");
             }
-            CargarGrillaTarjCliNac(oBEClienteAux);
-            CargarGrillaTarjCliInt(oBEClienteAux);
+            CargarGrillaCliente();
+            CargarGrillaTarjCliNac(oBEClienteAux2);
+            CargarGrillaTarjCliInt(oBEClienteAux2);
+            CargarGrillaTarjDispNac();
+            CargarGrillaTarjDispInt();
         }
 
         private void DataGridView_Tarjetas_Int_Disponibles_MouseClick(object sender, MouseEventArgs e)

@@ -48,6 +48,7 @@ namespace Mapper
 
         public BECliente ListarObjeto(BECliente oBECliente)
         {
+            BECliente oBEClienteAux = new BECliente();
             try
             {
                 DataSet oDataSetCliente;
@@ -58,12 +59,13 @@ namespace Mapper
                 {
                     foreach (DataRow fila in oDataSetCliente.Tables[0].Rows)
                     {
-                        oBECliente.Nombre = fila[1].ToString();
-                        oBECliente.Apellido = fila[2].ToString();
-                        oBECliente.DNI = Convert.ToInt32(fila[3]);
-                        oBECliente.FechaNacimiento = Convert.ToDateTime(fila[4]);
+                        oBEClienteAux.Codigo = Convert.ToInt32(fila[0]);
+                        oBEClienteAux.Nombre = fila[1].ToString();
+                        oBEClienteAux.Apellido = fila[2].ToString();
+                        oBEClienteAux.DNI = Convert.ToInt32(fila[3]);
+                        oBEClienteAux.FechaNacimiento = Convert.ToDateTime(fila[4]);
                         DataSet oDataSetTarjeta;
-                        string ConsultaSqlTarjeta = " Select Tarjetas.Codigo,Numero,Vencimiento,Estado,Rubro,TipoNacProv,Provincia,Saldo from Tarjetas, Cliente_Tarjeta" +
+                        string ConsultaSqlTarjeta = " Select Tarjetas.Codigo,Numero,Vencimiento,Estado,Rubro,TipoNacProv,Saldo,Provincia from Tarjetas, Cliente_Tarjeta" +
                             " where Cliente_Tarjeta.CoDTarjeta = Tarjetas.Codigo and Cliente_Tarjeta.CodCliente = " + oBECliente.Codigo + "";
                         oDataSetTarjeta = oConexion.LeerDataSet(ConsultaSqlTarjeta);
                         
@@ -72,7 +74,7 @@ namespace Mapper
                             List<BETarjeta> ListaTarjetas = new List<BETarjeta>();
                             foreach (DataRow fila2 in oDataSetTarjeta.Tables[0].Rows)
                             {
-                                string prueba = fila2[6].ToString();
+                                //string prueba = fila2[6].ToString();
                                 if (fila2[7].ToString() == "")
                                 {
                                     BETarjetaInternacional oBETarjetaInt = new BETarjetaInternacional();
@@ -82,9 +84,9 @@ namespace Mapper
                                     oBETarjetaInt.Estado = fila2[3].ToString();
                                     oBETarjetaInt.Rubro = fila2[4].ToString();
                                     oBETarjetaInt.Pais = fila2[5].ToString();
-                                    if (fila2[7].ToString() != "")
+                                    if (fila2[6].ToString() != "")
                                     {
-                                        oBETarjetaInt.Saldo = Convert.ToInt32(fila2[8]);
+                                        oBETarjetaInt.Saldo = Convert.ToInt32(fila2[6]);
                                     }
                                     
                                     ListaTarjetas.Add(oBETarjetaInt);
@@ -98,14 +100,14 @@ namespace Mapper
                                     oBETarjetaNac.Estado = fila2[3].ToString();
                                     oBETarjetaNac.Rubro = fila2[4].ToString();
                                     oBETarjetaNac.Pais = fila2[5].ToString();
-                                    oBETarjetaNac.Provincia = fila2[6].ToString();
-                                    if (fila2[7].ToString() != "")
+                                    if (fila2[6].ToString() != "")
                                     {
-                                        oBETarjetaNac.Saldo = Convert.ToInt32(fila2[7]);
+                                        oBETarjetaNac.Saldo = Convert.ToInt32(fila2[6]);
                                     }
+                                    oBETarjetaNac.Provincia = fila2[7].ToString();
                                     ListaTarjetas.Add(oBETarjetaNac);
                                 }
-                                oBECliente.Tarjeta = ListaTarjetas;
+                                oBEClienteAux.Tarjeta = ListaTarjetas;
                             }
                         }
                         
@@ -113,7 +115,7 @@ namespace Mapper
                 }
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
-            return oBECliente;
+            return oBEClienteAux;
         }
 
         public List<BECliente> ListarTodo()

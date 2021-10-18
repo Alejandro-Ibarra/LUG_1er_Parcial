@@ -24,7 +24,7 @@ namespace Mapper
             }
             else
             {
-                ConsultaSql = "Update Tarjetas SET Numero = '" + oBETarjeta.Numero + "', Vencimiento = '" + oBETarjeta.Vencimiento + "', Estado = '" + oBETarjeta.Estado + "', Rubro = '" + oBETarjeta.Rubro + "', TipoNacProv = '" + oBETarjeta.Pais + "', Provincia = '" + oBETarjeta.Provincia + "' where codigo = " + oBETarjeta.Codigo + "";
+                ConsultaSql = "Update Tarjetas SET Numero = '" + oBETarjeta.Numero + "', Vencimiento = '" + oBETarjeta.Vencimiento + "', Estado = '" + oBETarjeta.Estado + "', Saldo = '" + oBETarjeta.Saldo + "', Rubro = '" + oBETarjeta.Rubro + "', TipoNacProv = '" + oBETarjeta.Pais + "', Provincia = '" + oBETarjeta.Provincia + "' where codigo = " + oBETarjeta.Codigo + "";
             }
             oConexion = new Conexion();
             return oConexion.Escribir(ConsultaSql);
@@ -50,7 +50,7 @@ namespace Mapper
                     oBETarjetaNac2.Provincia = fila[6].ToString();
                     if (fila[7].ToString() != "")
                     {
-                        oBETarjetaNac2.Codigo = Convert.ToInt32(fila[7]);
+                        oBETarjetaNac2.Saldo = Convert.ToInt32(fila[7]);
                     }
 
                     ListaTarjetas.Add(oBETarjetaNac2);

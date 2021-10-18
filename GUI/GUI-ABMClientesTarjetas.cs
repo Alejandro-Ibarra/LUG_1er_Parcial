@@ -109,12 +109,14 @@ namespace GUI
                 {
                     oBETarjetaNac.Codigo = 0;
                     oBETarjetaNac.Estado = "null";
+                    oBETarjetaNac.Saldo = 0;
                     oBLTarjetaNac.Guardar(oBETarjetaNac);
                 }
                 else
                 {
                     oBETarjetaInt.Codigo = 0;
                     oBETarjetaNac.Estado = "null";
+                    oBETarjetaInt.Saldo = 0;
                     oBLTarjetaInt.Guardar(oBETarjetaInt);
                 }
                 Limpiar();
@@ -352,46 +354,33 @@ namespace GUI
             List<BETarjetaInternacional> ListaTarjetasInt = oBLTarjetaInt.ListarTodo();
             double aux1 = 0;
             double aux = 0;
+            int numeroTarjeta = 0;
             BETarjeta oBETarjAux = new BETarjeta();
             if (ListaDescuentos != null)
             {
-                foreach (BETarjetaNacional oBETarjNacAux in ListaTarjetasNac)
+                foreach (BEDescuentoCalculado oBEDesAux in ListaDescuentos)
                 {
-                    foreach (BEDescuentoCalculado oBEDesAux in ListaDescuentos)
-                     {
-                        if (oBEDesAux.NumeroTarjeta == oBETarjNacAux.Numero)
-                        {
-                            aux1 += oBEDesAux.DescuentoOtorgado;
-                            if (aux1 > aux)
-                            {
-                                oBETarjAux = oBETarjNacAux;
-                                aux = aux1;
-                            }
-                        }
-                    }
-                }
-            }
-            if (ListaDescuentos != null)
-            {
-                foreach (BETarjetaInternacional oBETarjIntAux in ListaTarjetasInt)
-                {
-                    foreach (BEDescuentoCalculado oBEDesAux in ListaDescuentos)
+                    aux1 += oBEDesAux.DescuentoOtorgado;
+                    numeroTarjeta = oBEDesAux.NumeroTarjeta;
+                    foreach (BEDescuentoCalculado oBEDesAux2 in ListaDescuentos)
                     {
-                        if (oBEDesAux.NumeroTarjeta == oBETarjIntAux.Numero)
+                        if (oBEDesAux.NumeroTarjeta == oBEDesAux2.NumeroTarjeta && oBEDesAux.DescuentoOtorgado != oBEDesAux2.DescuentoOtorgado)
                         {
-                            aux1 += oBEDesAux.DescuentoOtorgado;
-                            if (aux1 > aux)
-                            {
-                                oBETarjAux = oBETarjIntAux;
-                                aux = aux1;
-                            }
+                                aux1 += oBEDesAux2.DescuentoOtorgado;
                         }
                     }
+                    if (aux1 > aux)
+                    {
+                        aux = aux1;
+                        aux1 = 0;
+                    }
                 }
+                TextBox_Tarj_Mayor_Desc.Text = "La tarjeta con mayor descuento es " + numeroTarjeta.ToString() + " con el descuento de " + aux + ".";
             }
-
-            TextBox_Tarj_Mayor_Desc.Text = "La tarjeta con mayor descuento es " + oBETarjAux.Numero + " con el descuento de "+ aux +".";
-
+            else
+            {
+                TextBox_Tarj_Mayor_Desc.Text = "No hay descuentos acumulados";
+            }
         }
 
         private void TarjetaMenorMonto()

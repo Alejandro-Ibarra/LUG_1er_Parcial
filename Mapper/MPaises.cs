@@ -13,6 +13,7 @@ namespace Mapper
     public class MPaises : IGestor<BEPaises>
     {
         Conexion oConexion;
+
         public bool Baja(BEPaises Objeto)
         {
             throw new NotImplementedException();

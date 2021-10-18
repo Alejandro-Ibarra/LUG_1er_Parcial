@@ -13,6 +13,7 @@ namespace Mapper
     public class MProvincias
     {
         Conexion oConexion;
+
         public List<BEProvincias> ListarTodo()
         {
             oConexion = new Conexion();
